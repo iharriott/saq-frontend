@@ -1,0 +1,71 @@
+<h3>Events</h3>
+<form [formGroup]="quoteEventForm" > 
+    <div class="row">
+      <div class="col-md-3">
+        <div class="mb-3">
+            <mat-form-field appearance="fill">
+                <mat-label>Event Type</mat-label>
+                <input matInput type="text" formControlName="eventType" placeholder="EventType" >
+              </mat-form-field>
+        </div>
+    </div>
+
+        <div class="col-md-3">
+            <div class="mb-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Event Category</mat-label>
+                    <input matInput type="text" formControlName="eventCategory" placeholder="EventCategory" >
+                  </mat-form-field>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="mb-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Job Code</mat-label>
+                    <input matInput type="number" formControlName="jobCode" placeholder="JobCode" >
+                  </mat-form-field>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="mb-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Component Code</mat-label>
+                    <input matInput type="number" formControlName="componentCode" placeholder="ComponentCode" >
+                  </mat-form-field>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-3">
+            <div class="mb-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Sort</mat-label>
+                    <input matInput type="number" formControlName="sort" placeholder="Sort" >
+                  </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="mb-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enabled</mat-label>
+                    <input matInput type="text" formControlName="enabled" placeholder="Enabled" >
+                  </mat-form-field>
+            </div>
+
+        </div>
+
+        </div>
+
+    </div>
+   
+    <div class="form-group">
+        <button class="button_example2"  mat-flat-button color="primary" (click) = "onSave()">Save</button>
+        <button class="button_example2"  [mat-dialog-close] color="primary">Close</button>
+    </div>
+    
+</form>

@@ -1,0 +1,76 @@
+<table  mat-table  [dataSource]="dataSource" class="mat-elevation-z8" fixedLayout="true">
+
+  <ng-container matColumnDef="EnableInd">
+    <th mat-header-cell *matHeaderCellDef>Enabled</th>
+    <td mat-cell *matCellDef="let standardJob"> {{standardJob.EnableInd === 2 ? 'Yes': 'No'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="EventTypeDesc">
+    <th mat-header-cell *matHeaderCellDef>Event Type</th>
+    <td mat-cell *matCellDef="let standardJob"> {{standardJob.EventTypeDesc}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="EventCategoryDesc">
+    <th mat-header-cell *matHeaderCellDef>Event Category</th>
+    <td mat-cell *matCellDef="let standardJob"> {{standardJob.EventCategoryDesc}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="JobCode">
+    <th mat-header-cell *matHeaderCellDef>Job Code</th>
+    <td mat-cell *matCellDef="let standardJob"> {{standardJob.JobCode}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ComponentCode">
+    <th mat-header-cell *matHeaderCellDef>Component Code</th>
+    <td mat-cell *matCellDef="let standardJob"> {{standardJob.ComponentCode}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ModifierCode">
+    <th mat-header-cell *matHeaderCellDef>Modifier Code</th>
+    <td mat-cell *matCellDef="let standardJob"> {{standardJob.ModifierCode}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="BusinessGroup">
+    <th mat-header-cell *matHeaderCellDef>Business Group</th>
+    <td mat-cell *matCellDef="let standardJob"> {{standardJob.BusinessGroup}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="QuantityCode">
+    <th mat-header-cell *matHeaderCellDef>Quantity Code</th>
+    <td mat-cell *matCellDef="let standardJob"> {{standardJob.QuantityCode}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="WorkAppCode">
+    <th mat-header-cell *matHeaderCellDef>WorkApp Code</th>
+    <td mat-cell *matCellDef="let standardJob"> {{standardJob.WorkAppCode}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="CabTypeCode">
+    <th mat-header-cell *matHeaderCellDef>CabType Code</th>
+    <td mat-cell *matCellDef="let standardJob"> {{standardJob.CabTypeCode}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="JobLocationCode">
+    <th mat-header-cell *matHeaderCellDef>JobLocation Code</th>
+    <td mat-cell *matCellDef="let standardJob"> {{standardJob.JobLocationCode}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="JobConditionCode">
+    <th mat-header-cell *matHeaderCellDef>JobCondition Code</th>
+    <td mat-cell *matCellDef="let standardJob"> {{standardJob.JobConditionCode}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ShopFieldDesc">
+    <th mat-header-cell *matHeaderCellDef>ShopField</th>
+    <td mat-cell *matCellDef="let standardJob"> {{standardJob.ShopFieldDesc}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Sort">
+    <th mat-header-cell *matHeaderCellDef>Sort</th>
+    <td mat-cell *matCellDef="let standardJob"> {{standardJob.Sort}} </td>
+  </ng-container>
+
+ 
+  <tr mat-header-row *matHeaderRowDef="columns"></tr>
+  <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+</table>
