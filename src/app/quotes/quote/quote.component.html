@@ -3,13 +3,9 @@
 </button>
 
 <mat-horizontal-stepper linear #stepper>
-  <mat-step
-    label="Quote Header"
-    [stepControl]="quoteForm"
-    [editable]="isEditable"
-  >
+  <mat-step label="Quote Header" [stepControl]="" [editable]="isEditable">
     <h3>Quotes</h3>
-    <form [formGroup]="quoteForm" (submit)="onSumbit()">
+    <form [formGroup]="quoteService.quoteFormOverview" (submit)="onSumbit()">
       <div class="row">
         <div class="col-md-3">
           <div class="mb-3">
@@ -28,34 +24,6 @@
         <div class="col-md-3">
           <div class="mb-3">
             <mat-form-field appearance="fill">
-              <mat-label>Hmo Contractor</mat-label>
-              <input
-                matInput
-                type="text"
-                formControlName="hmoContractor"
-                placeholder="HmoContractor"
-              />
-            </mat-form-field>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="mb-3">
-            <mat-form-field appearance="fill">
-              <mat-label>Owner</mat-label>
-              <input
-                matInput
-                type="text"
-                formControlName="owner"
-                placeholder="Owner"
-              />
-            </mat-form-field>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="mb-3">
-            <mat-form-field appearance="fill">
               <mat-label>Orignator</mat-label>
               <input
                 matInput
@@ -66,21 +34,16 @@
             </mat-form-field>
           </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-3">
-          <div class="mb-3">
-            <mat-form-field appearance="fill">
-              <mat-label>Description</mat-label>
-              <input
-                matInput
-                type="text"
-                formControlName="description"
-                placeholder="Description"
-              />
-            </mat-form-field>
-          </div>
+        <div class="form-group">
+          <button
+            class="button_example"
+            mat-button
+            mat-flat-button
+            color="primary"
+            (click)="addOrEditEvents(null, null)"
+          >
+            Save
+          </button>
         </div>
 
         <div class="col-md-3">

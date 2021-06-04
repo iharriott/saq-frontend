@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { QuoteInfo } from './quote-info.model';
 import { Quote } from './quote.model';
 
 @Injectable({
@@ -6,7 +8,11 @@ import { Quote } from './quote.model';
 })
 export class QuoteService {
 
-  quoteFormOverview: Quote;
+  quoteFormOverview: FormGroup;
+  quoteFormDetail: Quote;
+  quoteItems: Quote[] = [];
+  quoteInfoItems: QuoteInfo[] = [];
+
   
   constructor() { }
 }

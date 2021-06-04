@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Emitters } from 'src/app/emitters/emitter';
+import { QuoteService } from 'src/app/shared/quote.service';
 import { QuoteEvent } from '../../../app/shared/quote-event.model';
 import { QuoteEventsComponent } from '../quote-events/quote-events.component';
 
@@ -15,9 +16,10 @@ import { QuoteEventsComponent } from '../quote-events/quote-events.component';
 export class QuoteComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    public quoteService: QuoteService) { }
 
-  quoteForm: FormGroup;
+  //quoteForm: FormGroup;
   eventList: QuoteEvent[] = [];
   showHeader: boolean = true;
   isEditable: boolean = true;
@@ -34,7 +36,7 @@ export class QuoteComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.quoteForm = this.formBuilder.group({
+    this.quoteService.quoteFormOverview = this.formBuilder.group({
       quoteNo: Math.floor(1000000 + Math.random() * 900000),
       hmoContractor: '',
       owner: '',
@@ -65,7 +67,7 @@ export class QuoteComponent implements OnInit {
   }
 
 onSumbit(){
-  console.log(this.quoteForm.getRawValue());
+  //console.log(this.quoteForm.getRawValue());
 }
 
 openDialog(action: string, elem: any){

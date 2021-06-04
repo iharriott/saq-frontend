@@ -1,14 +1,14 @@
 <h3>Account Information</h3>
 
-<form [formGroup]="quoteInfoForm" (submit)="quoteInfoSubmit()">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="mb-3">
-        <mat-form-field appearance="fill">
-          <mat-label>Quote Date</mat-label>
-          <input matInput type="text" formControlName="quoteDate" />
-        </mat-form-field>
-      </div>
+<form [formGroup]="quoteInfoForm" > 
+    <div class="row">
+      <div class="col-md-3">
+        <div class="mb-3">
+            <mat-form-field appearance="fill">
+                <mat-label>Quote Date</mat-label>
+                <input matInput type="text" formControlName="quoteDate" >
+              </mat-form-field>
+        </div>
     </div>
 
     <div class="col-md-3">
@@ -103,10 +103,10 @@
           <input matInput type="text" formControlName="comments" />
         </mat-form-field>
       </div>
-    </div>
-  </div>
-
-  <button class="button_example" mat-button mat-flat-button color="primary">
-    Add Events
-  </button>
+     
+      </div>
+   
+      <div class="form-group">
+        <button class="button_example" mat-button mat-flat-button color="primary" (click) ="quoteInfoSubmit()">Save</button>        
+      </div>       
 </form>
