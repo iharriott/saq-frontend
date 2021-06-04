@@ -1,6 +1,6 @@
 <h3>Account Information</h3>
 
-<form [formGroup]="quoteInfoForm" (submit) ="quoteInfoSubmit()"> 
+<form [formGroup]="quoteInfoForm" > 
     <div class="row">
       <div class="col-md-3">
         <div class="mb-3">
@@ -117,5 +117,7 @@
      
       </div>
    
-    <button class="button_example" mat-button mat-flat-button color="primary" >Add Events</button>        
+      <div class="form-group">
+        <button class="button_example" mat-button mat-flat-button color="primary" (click) ="quoteInfoSubmit()">Save</button>        
+      </div>       
 </form>

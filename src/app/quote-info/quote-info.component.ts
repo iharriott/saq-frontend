@@ -32,7 +32,8 @@ export class QuoteInfoComponent implements OnInit {
   }
 
   quoteInfoSubmit(){
-
+    this.quoteService.quoteInfoItems.push(this.quoteInfoForm.value);
+    console.log(' form value',this.quoteService.quoteInfoItems);
   }
 
 }
