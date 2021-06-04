@@ -35,7 +35,7 @@ export class QuoteComponent implements OnInit {
   ngOnInit(): void {
 
     this.quoteForm = this.formBuilder.group({
-      quoteNo: 0,
+      quoteNo: Math.floor(1000000 + Math.random() * 900000),
       hmoContractor: '',
       owner: '',
       orignator: '',

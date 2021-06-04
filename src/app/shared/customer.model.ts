@@ -9,6 +9,6 @@ export class Customer {
     TaxCodes: string;
     exemptNo:  number;
     chargeCode: string;
-    PrevWage: string;
+    PrevWage: number;
     terms: string;
 }

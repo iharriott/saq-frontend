@@ -1,4 +1,10 @@
+import { Customer } from "./customer.model";
+
 export class Opportunity {
-    name: string;
+    oppNo: string;
+    estDelivery: string;
+    probClosing: string;
+    commodity: string;
+    source: string;
 }
 
