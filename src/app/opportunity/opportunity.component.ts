@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { QuoteService } from '../shared/quote.service';
 
 @Component({
   selector: 'app-opportunity',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpportunityComponent implements OnInit {
 
-  constructor() { }
+  constructor(private quoteService: QuoteService,
+    private formBuilder: FormBuilder) { }
+
+  opportunityForm: FormGroup;
 
   ngOnInit(): void {
+    this.opportunityForm = this.formBuilder.group({
+      oppNo: '',
+      estDelivery: '',
+      probClosing: '',
+      commodity: '',
+      source: ''
+    });
+  }
+
+  opportunitySubmit() {
+
   }
 
 }

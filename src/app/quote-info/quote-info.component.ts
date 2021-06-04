@@ -12,7 +12,7 @@ export class QuoteInfoComponent implements OnInit {
   constructor(private quoteService: QuoteService,
     private formBuilder: FormBuilder) { }
 
-    quoteInfoForm: FormGroup
+  quoteInfoForm: FormGroup;
 
   ngOnInit(): void {
 
@@ -22,7 +22,7 @@ export class QuoteInfoComponent implements OnInit {
       contractType: 'Construction Gold',
       description: '',
       branch: 'Branch00',
-      CostCenter: 'GR BENSALEM PA',
+      costCenter: 'GR BENSALEM PA',
       owner: 'demouser1 Uptake',
       mobilePhoneNo: '222-534-9999',
       officePhoneNo: '666-121-6758',
@@ -31,7 +31,7 @@ export class QuoteInfoComponent implements OnInit {
     });
   }
 
-  quoteInfoSubmit(){
+  quoteInfoSubmit() {
 
   }
 

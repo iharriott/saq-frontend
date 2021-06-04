@@ -1,121 +1,112 @@
 <h3>Account Information</h3>
 
-<form [formGroup]="quoteInfoForm" (submit) ="quoteInfoSubmit()"> 
-    <div class="row">
-      <div class="col-md-3">
-        <div class="mb-3">
-            <mat-form-field appearance="fill">
-                <mat-label>Quote Date</mat-label>
-                <input matInput type="text" formControlName="quoteDate" >
-              </mat-form-field>
-        </div>
+<form [formGroup]="quoteInfoForm" (submit)="quoteInfoSubmit()">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Quote Date</mat-label>
+          <input matInput type="text" formControlName="quoteDate" />
+        </mat-form-field>
+      </div>
     </div>
 
-        <div class="col-md-3">
-            <div class="mb-3">
-                <mat-form-field appearance="fill">
-                    <mat-label>Quote Status</mat-label>
-                    <input matInput type="text" formControlName="quoteStatus"  >
-                  </mat-form-field>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="mb-3">
-                <mat-form-field appearance="fill">
-                    <mat-label>Contract Type</mat-label>
-                    <input matInput type="text" formControlName="contractType" >
-                  </mat-form-field>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="mb-3">
-                <mat-form-field appearance="fill">
-                    <mat-label>Description</mat-label>
-                    <input matInput type="text" formControlName="description">
-                  </mat-form-field>
-            </div>
-
-        </div>
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Quote Status</mat-label>
+          <input matInput type="text" formControlName="quoteStatus" />
+        </mat-form-field>
+      </div>
     </div>
 
-    <div class="row">
-
-        <div class="col-md-3">
-          <div class="mb-3">
-              <mat-form-field appearance="fill">
-                  <mat-label>Branch</mat-label>
-                  <input matInput type="text" formControlName="branch" >
-                </mat-form-field>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="mb-3">
-              <mat-form-field appearance="fill">
-                  <mat-label>Cost Center</mat-label>
-                  <input matInput type="text" formControlName="costCenter" >
-                </mat-form-field>
-          </div>
-
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Contract Type</mat-label>
+          <input matInput type="text" formControlName="contractType" />
+        </mat-form-field>
       </div>
+    </div>
 
-      <div class="col-md-3">
-            
-          <div class="mb-3">
-              <mat-form-field appearance="fill">
-                  <mat-label>Owner</mat-label>
-                  <input matInput type="text" formControlName="owner" >
-                </mat-form-field>
-          </div>
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <input matInput type="text" formControlName="description" />
+        </mat-form-field>
       </div>
+    </div>
+  </div>
 
-      <div class="col-md-3">
-          <div class="mb-3">
-              <mat-form-field appearance="fill">
-                  <mat-label>Mobile Phone No</mat-label>
-                  <input matInput type="text" formControlName="mobilePhoneNo" >
-                </mat-form-field>
-          </div>
-
-
+  <div class="row">
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Branch</mat-label>
+          <input matInput type="text" formControlName="branch" />
+        </mat-form-field>
       </div>
-     
+    </div>
+
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Cost Center</mat-label>
+          <input matInput type="text" formControlName="costCenter" />
+        </mat-form-field>
       </div>
+    </div>
 
-      <div class="row">
-
-        <div class="col-md-3">
-          <div class="mb-3">
-              <mat-form-field appearance="fill">
-                  <mat-label>Phone No</mat-label>
-                  <input matInput type="text" formControlName="officePhoneNo" >
-                </mat-form-field>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="mb-3">
-              <mat-form-field appearance="fill">
-                  <mat-label>Diff Owner</mat-label>
-                  <input matInput type="text" formControlName="diffOwner" >
-                </mat-form-field>
-          </div>
-
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Owner</mat-label>
+          <input matInput type="text" formControlName="owner" />
+        </mat-form-field>
       </div>
+    </div>
 
-      <div class="col-md-3">
-            
-          <div class="mb-3">
-              <mat-form-field appearance="fill">
-                  <mat-label>Comments</mat-label>
-                  <input matInput type="text" formControlName="comments" >
-                </mat-form-field>
-          </div>
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Mobile Phone No</mat-label>
+          <input matInput type="text" formControlName="mobilePhoneNo" />
+        </mat-form-field>
       </div>
-     
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Phone No</mat-label>
+          <input matInput type="text" formControlName="officePhoneNo" />
+        </mat-form-field>
       </div>
-   
-    <button class="button_example" mat-button mat-flat-button color="primary" >Add Events</button>        
+    </div>
+
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Diff Owner</mat-label>
+          <input matInput type="text" formControlName="diffOwner" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Comments</mat-label>
+          <input matInput type="text" formControlName="comments" />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <button class="button_example" mat-button mat-flat-button color="primary">
+    Add Events
+  </button>
 </form>

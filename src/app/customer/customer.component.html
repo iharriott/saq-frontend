@@ -1,1 +1,117 @@
-<p>customer works!</p>
+<h3>Customer Information</h3>
+
+<form [formGroup]="customerForm" (submit)="customerSubmit()">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Customer</mat-label>
+          <input matInput type="text" formControlName="name" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input matInput type="text" formControlName="address" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>City/State</mat-label>
+          <input matInput type="text" formControlName="cityState" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Zip</mat-label>
+          <input matInput type="text" formControlName="zip" />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Phone</mat-label>
+          <input matInput type="text" formControlName="phone" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>PO No</mat-label>
+          <input matInput type="text" formControlName="poNo" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>PO Req</mat-label>
+          <input matInput type="text" formControlName="poReq" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Tax Codes</mat-label>
+          <input matInput type="text" formControlName="taxCodes" />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Exempt No</mat-label>
+          <input matInput type="text" formControlName="exemptNo" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Charge Code</mat-label>
+          <input matInput type="text" formControlName="chargeCode" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Prevailing Wage</mat-label>
+          <input matInput type="text" formControlName="prevWage" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Terms</mat-label>
+          <input matInput type="text" formControlName="terms" />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</form>

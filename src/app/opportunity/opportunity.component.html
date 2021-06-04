@@ -1,1 +1,52 @@
-<p>opportunity works!</p>
+<h3>Opportunity Information</h3>
+
+<form [formGroup]="opportunityForm" (submit)="opportunitySubmit()">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Opportunity No</mat-label>
+          <input matInput type="text" formControlName="oppNo" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Estimated Delivery</mat-label>
+          <input matInput type="text" formControlName="estDelivery" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Prob Closing</mat-label>
+          <input matInput type="text" formControlName="probClosing" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Commodity</mat-label>
+          <input matInput type="text" formControlName="commodity" />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Source</mat-label>
+          <input matInput type="text" formControlName="source" />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</form>
