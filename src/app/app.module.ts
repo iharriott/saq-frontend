@@ -40,6 +40,7 @@ import { AddEquipmentComponent } from './equipments/add-equipment/add-equipment.
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import { EquipmentEventsComponent } from './equipments/equipment-events/equipment-events.component';
 
 
 
@@ -58,7 +59,8 @@ import { MatSelectModule } from '@angular/material/select';
     EquipmentsComponent,
     EquipmentComponent,
     QuoteHeaderComponent,
-    AddEquipmentComponent
+    AddEquipmentComponent,
+    EquipmentEventsComponent
   ],
   imports: [
     BrowserModule,

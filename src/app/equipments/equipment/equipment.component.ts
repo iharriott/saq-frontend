@@ -28,7 +28,7 @@ export class EquipmentComponent implements OnInit {
     this.dialog.open(AddEquipmentComponent, {
       autoFocus: true,
       disableClose: true,
-      width: '60%',
+      width: '70%',
       data: { eventIndex, quoteNo },
       height: '90vh'
     });

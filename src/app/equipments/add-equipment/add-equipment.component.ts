@@ -12,6 +12,7 @@ export class AddEquipmentComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     public quoteService: QuoteService) { }
 
+  equipmentToggle: boolean = true;
   equipmentSelection: string = 'Serial No Based';
 
   equipmentSelections: string[] = ['Serial No Based', 'Model Based'];
@@ -60,8 +61,8 @@ export class AddEquipmentComponent implements OnInit {
     });
   }
 
-  addEquipment() {
-    console.log('test');
+  goToEvents() {
+    this.equipmentToggle = !this.equipmentToggle;
   }
 
 }

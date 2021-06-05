@@ -1,365 +1,380 @@
 <div class="container">
-  <h2>Add Equipment</h2>
-  <div class="mb-3">
-    <mat-radio-group
-      aria-label="Select an option"
-      [(ngModel)]="equipmentSelection"
-    >
-      <mat-radio-button
-        *ngFor="let selection of equipmentSelections"
-        [value]="selection"
-        >{{ selection }}</mat-radio-button
-      >
-    </mat-radio-group>
-  </div>
-
-  <form [formGroup]="addEquipmentForm">
+  <div *ngIf="equipmentToggle">
+    <h2>Add Equipment</h2>
     <div class="mb-3">
-      <fieldset *ngIf="equipmentSelection === 'Serial No Based'">
-        <legend>Serial</legend>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="mb-3">
-              <mat-form-field appearance="standard">
-                <mat-label>Serial No</mat-label>
-                <input matInput type="text" formControlName="serialNo" />
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="mb-3">
-              <mat-form-field appearance="standard">
-                <mat-label>SMU</mat-label>
-                <input matInput type="text" formControlName="smu" />
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="mb-3">
-              <mat-form-field appearance="standard">
-                <mat-label>Stock No</mat-label>
-                <input matInput type="text" formControlName="stockNo" />
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="mb-3">
-              <mat-form-field appearance="standard">
-                <mat-label>Last Billed Smu</mat-label>
-                <input matInput type="text" formControlName="lastBilledSmu" />
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="mb-3">
-              <mat-form-field appearance="standard">
-                <mat-label>Unit No</mat-label>
-                <input matInput type="text" formControlName="unitNo" />
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="mb-3">
-              <mat-form-field appearance="standard">
-                <mat-label>Product Link</mat-label>
-                <input matInput type="text" formControlName="productLink" />
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="mb-3">
-              <mat-form-field appearance="standard">
-                <mat-label>Annual Usage</mat-label>
-                <input matInput type="text" formControlName="annualUsage" />
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-      </fieldset>
-
-      <fieldset *ngIf="equipmentSelection === 'Model Based'">
-        <legend>Model</legend>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="mb-3">
-              <mat-form-field appearance="standard">
-                <mat-label>Model</mat-label>
-                <input matInput type="text" formControlName="model" />
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="mb-3">
-              <mat-form-field appearance="standard">
-                <mat-label>Make</mat-label>
-                <input matInput type="text" formControlName="make" />
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="mb-3">
-              <mat-form-field appearance="standard">
-                <mat-label>Family</mat-label>
-                <input matInput type="text" formControlName="family" />
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="mb-3">
-              <mat-form-field appearance="standard">
-                <mat-label>Serial No Range</mat-label>
-                <input matInput type="text" formControlName="serialNoRange" />
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-      </fieldset>
+      <mat-radio-group
+        aria-label="Select an option"
+        [(ngModel)]="equipmentSelection"
+      >
+        <mat-radio-button
+          *ngFor="let selection of equipmentSelections"
+          [value]="selection"
+          >{{ selection }}</mat-radio-button
+        >
+      </mat-radio-group>
     </div>
 
-    <fieldset class="mb-3">
-      <legend>Contract</legend>
-      <div class="row contract-row">
-        <div class="col-md-4">
-          <div class="row label-row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4"><span>Start</span></div>
-            <div class="col-md-4"><span>End</span></div>
-          </div>
-        </div>
-        <div class="col-md-4">
+    <form [formGroup]="addEquipmentForm">
+      <div class="mb-3">
+        <fieldset *ngIf="equipmentSelection === 'Serial No Based'">
+          <legend>Serial</legend>
           <div class="row">
-            <div class="col-md-4"><span>Event Trigger:</span></div>
-            <div class="col-md-4">
-              <mat-form-field appearance="standard">
-                <mat-label>Event Trigger</mat-label>
-                <mat-select formControlName="eventTrigger">
-                  <mat-option
-                    *ngFor="let eventTrigger of eventTriggerList"
-                    [value]="eventTrigger"
-                  >
-                    {{ eventTrigger }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-            <div class="col-md-4">
-              <mat-form-field appearance="standard">
-                <mat-label>Event Trigger Metric</mat-label>
-                <mat-select formControlName="eventTriggerMetric">
-                  <mat-option
-                    *ngFor="let eventTriggerMetric of eventTriggerMetricsList"
-                    [value]="eventTriggerMetric"
-                  >
-                    {{ eventTriggerMetric }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
+            <div class="col-md-12">
+              <div class="mb-3">
+                <mat-form-field appearance="standard">
+                  <mat-label>Serial No</mat-label>
+                  <input matInput type="text" formControlName="serialNo" />
+                </mat-form-field>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
           <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-4">Start at PM:</div>
-            <div class="col-md-7">
-              <mat-form-field appearance="standard">
-                <mat-label>Start at PM</mat-label>
-                <mat-select formControlName="startAtPM">
-                  <mat-option
-                    *ngFor="let startPM of startPMList"
-                    [value]="startPM"
-                  >
-                    {{ startPM }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <mat-form-field appearance="standard">
+                  <mat-label>SMU</mat-label>
+                  <input matInput type="text" formControlName="smu" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <mat-form-field appearance="standard">
+                  <mat-label>Stock No</mat-label>
+                  <input matInput type="text" formControlName="stockNo" />
+                </mat-form-field>
+              </div>
             </div>
           </div>
-        </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <mat-form-field appearance="standard">
+                  <mat-label>Last Billed Smu</mat-label>
+                  <input matInput type="text" formControlName="lastBilledSmu" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <mat-form-field appearance="standard">
+                  <mat-label>Unit No</mat-label>
+                  <input matInput type="text" formControlName="unitNo" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <mat-form-field appearance="standard">
+                  <mat-label>Product Link</mat-label>
+                  <input matInput type="text" formControlName="productLink" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <mat-form-field appearance="standard">
+                  <mat-label>Annual Usage</mat-label>
+                  <input matInput type="text" formControlName="annualUsage" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset *ngIf="equipmentSelection === 'Model Based'">
+          <legend>Model</legend>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="mb-3">
+                <mat-form-field appearance="standard">
+                  <mat-label>Model</mat-label>
+                  <input matInput type="text" formControlName="model" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="mb-3">
+                <mat-form-field appearance="standard">
+                  <mat-label>Make</mat-label>
+                  <input matInput type="text" formControlName="make" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="mb-3">
+                <mat-form-field appearance="standard">
+                  <mat-label>Family</mat-label>
+                  <input matInput type="text" formControlName="family" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="mb-3">
+                <mat-form-field appearance="standard">
+                  <mat-label>Serial No Range</mat-label>
+                  <input matInput type="text" formControlName="serialNoRange" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </fieldset>
       </div>
 
-      <div class="row contract-row">
-        <div class="col-md-4">
-          <div class="row">
-            <div class="col-md-2"><span>Hour:</span></div>
-            <div class="col-md-5">
-              <mat-form-field appearance="standard">
-                <mat-label>Hour Start</mat-label>
-                <input matInput type="number" formControlName="hourStart" />
-              </mat-form-field>
-            </div>
-            <div class="col-md-5">
-              <mat-form-field appearance="standard">
-                <mat-label>Hour End</mat-label>
-                <input matInput type="number" formControlName="hourEnd" />
-              </mat-form-field>
+      <fieldset class="mb-3">
+        <legend>Contract</legend>
+        <div class="row contract-row">
+          <div class="col-md-4">
+            <div class="row label-row">
+              <div class="col-md-4"></div>
+              <div class="col-md-4"><span>Start</span></div>
+              <div class="col-md-4"><span>End</span></div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="row">
-            <div class="col-md-4">Interval:</div>
-            <div class="col-md-8">
-              <mat-form-field appearance="standard">
-                <mat-label>Interval</mat-label>
-                <mat-select formControlName="interval">
-                  <mat-option
-                    *ngFor="let interval of intervalList"
-                    [value]="interval"
-                  >
-                    {{ interval }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-4">Start PM Hr:</div>
-            <div class="col-md-7">
-              <mat-form-field appearance="standard">
-                <mat-label>Start PM Hr</mat-label>
-                <input matInput type="number" formControlName="startPMHr" />
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row contract-row">
-        <div class="col-md-4">
-          <div class="row">
-            <div class="col-md-2 side-label"><span>Date:</span></div>
-            <div class="col-md-5">
-              <mat-form-field appearance="standard" class="example-form-field">
-                <mat-label>Start</mat-label>
-                <input matInput [matDatepicker]="startdatepicker" />
-                <mat-datepicker-toggle
-                  matSuffix
-                  [for]="startdatepicker"
-                ></mat-datepicker-toggle>
-                <mat-datepicker #startdatepicker>
-                  <mat-datepicker-actions>
-                    <button mat-button matDatepickerCancel>Cancel</button>
-                    <button
-                      mat-raised-button
-                      color="primary"
-                      matDatepickerApply
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-4"><span>Event Trigger:</span></div>
+              <div class="col-md-4">
+                <mat-form-field appearance="standard">
+                  <mat-label>Event Trigger</mat-label>
+                  <mat-select formControlName="eventTrigger">
+                    <mat-option
+                      *ngFor="let eventTrigger of eventTriggerList"
+                      [value]="eventTrigger"
                     >
-                      Apply
-                    </button>
-                  </mat-datepicker-actions>
-                </mat-datepicker>
-              </mat-form-field>
-            </div>
-            <div class="col-md-5">
-              <mat-form-field appearance="standard" class="example-form-field">
-                <mat-label>End</mat-label>
-                <input matInput [matDatepicker]="enddatepicker" />
-                <mat-datepicker-toggle
-                  matSuffix
-                  [for]="enddatepicker"
-                ></mat-datepicker-toggle>
-                <mat-datepicker #enddatepicker>
-                  <mat-datepicker-actions>
-                    <button mat-button matDatepickerCancel>Cancel</button>
-                    <button
-                      mat-raised-button
-                      color="primary"
-                      matDatepickerApply
+                      {{ eventTrigger }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field appearance="standard">
+                  <mat-label>Event Trigger Metric</mat-label>
+                  <mat-select formControlName="eventTriggerMetric">
+                    <mat-option
+                      *ngFor="let eventTriggerMetric of eventTriggerMetricsList"
+                      [value]="eventTriggerMetric"
                     >
-                      Apply
-                    </button>
-                  </mat-datepicker-actions>
-                </mat-datepicker>
-              </mat-form-field>
+                      {{ eventTriggerMetric }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-md-4">Start at PM:</div>
+              <div class="col-md-7">
+                <mat-form-field appearance="standard">
+                  <mat-label>Start at PM</mat-label>
+                  <mat-select formControlName="startAtPM">
+                    <mat-option
+                      *ngFor="let startPM of startPMList"
+                      [value]="startPM"
+                    >
+                      {{ startPM }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="row">
-            <div class="col-md-4">Expires By:</div>
-            <div class="col-md-8">
-              <mat-form-field appearance="standard">
-                <mat-label>Expires By</mat-label>
-                <mat-select formControlName="expiresBy">
-                  <mat-option
-                    *ngFor="let expiresBy of expiresByList"
-                    [value]="expiresBy"
-                  >
-                    {{ expiresBy }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-4">Billing Interval:</div>
-            <div class="col-md-7">
-              <mat-form-field appearance="standard">
-                <mat-label>Billing Interval</mat-label>
-                <input matInput type="text" formControlName="billingInterval" />
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-      </div>
-    </fieldset>
-  </form>
-  <table class="table table-borderless">
-    <thead class="thead-light">
-      <th>PM History</th>
-      <th>SMU</th>
-      <th>WO No</th>
-      <th>Seg No</th>
-      <th>Opened</th>
-      <th>Closed</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="font-italic text-center" colspan="5">No Data Found</td>
-      </tr>
 
-      <tr *ngFor="">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+        <div class="row contract-row">
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-2"><span>Hour:</span></div>
+              <div class="col-md-5">
+                <mat-form-field appearance="standard">
+                  <mat-label>Hour Start</mat-label>
+                  <input matInput type="number" formControlName="hourStart" />
+                </mat-form-field>
+              </div>
+              <div class="col-md-5">
+                <mat-form-field appearance="standard">
+                  <mat-label>Hour End</mat-label>
+                  <input matInput type="number" formControlName="hourEnd" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-4">Interval:</div>
+              <div class="col-md-8">
+                <mat-form-field appearance="standard">
+                  <mat-label>Interval</mat-label>
+                  <mat-select formControlName="interval">
+                    <mat-option
+                      *ngFor="let interval of intervalList"
+                      [value]="interval"
+                    >
+                      {{ interval }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-md-4">Start PM Hr:</div>
+              <div class="col-md-7">
+                <mat-form-field appearance="standard">
+                  <mat-label>Start PM Hr</mat-label>
+                  <input matInput type="number" formControlName="startPMHr" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row contract-row">
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-2 side-label"><span>Date:</span></div>
+              <div class="col-md-5">
+                <mat-form-field
+                  appearance="standard"
+                  class="example-form-field"
+                >
+                  <mat-label>Start</mat-label>
+                  <input matInput [matDatepicker]="startdatepicker" />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="startdatepicker"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #startdatepicker>
+                    <mat-datepicker-actions>
+                      <button mat-button matDatepickerCancel>Cancel</button>
+                      <button
+                        mat-raised-button
+                        color="primary"
+                        matDatepickerApply
+                      >
+                        Apply
+                      </button>
+                    </mat-datepicker-actions>
+                  </mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="col-md-5">
+                <mat-form-field
+                  appearance="standard"
+                  class="example-form-field"
+                >
+                  <mat-label>End</mat-label>
+                  <input matInput [matDatepicker]="enddatepicker" />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="enddatepicker"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #enddatepicker>
+                    <mat-datepicker-actions>
+                      <button mat-button matDatepickerCancel>Cancel</button>
+                      <button
+                        mat-raised-button
+                        color="primary"
+                        matDatepickerApply
+                      >
+                        Apply
+                      </button>
+                    </mat-datepicker-actions>
+                  </mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-4">Expires By:</div>
+              <div class="col-md-8">
+                <mat-form-field appearance="standard">
+                  <mat-label>Expires By</mat-label>
+                  <mat-select formControlName="expiresBy">
+                    <mat-option
+                      *ngFor="let expiresBy of expiresByList"
+                      [value]="expiresBy"
+                    >
+                      {{ expiresBy }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-md-4">Billing Interval:</div>
+              <div class="col-md-7">
+                <mat-form-field appearance="standard">
+                  <mat-label>Billing Interval</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    formControlName="billingInterval"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <table class="table table-borderless">
+      <thead class="thead-light">
+        <th>PM History</th>
+        <th>SMU</th>
+        <th>WO No</th>
+        <th>Seg No</th>
+        <th>Opened</th>
+        <th>Closed</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="font-italic text-center" colspan="5">No Data Found</td>
+        </tr>
+
+        <tr *ngFor="">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="!equipmentToggle">
+    <app-equipment-events></app-equipment-events>
+  </div>
   <hr />
   <div class="button-row">
-    <button class="button_example" mat-button mat-flat-button color="primary">
-      <i class="fa fa-greater-than"></i>
-      Go to Events
-    </button>
     <button
       class="button_example"
       mat-button
       mat-flat-button
       color="primary"
-      (click)="addEquipment()"
+      (click)="goToEvents()"
     >
+      <i class="fa fa-greater-than"></i>
+      Go to Events
+    </button>
+    <button class="button_example" mat-button mat-flat-button color="primary">
       <i class="fa fa-database"></i>
       Save
     </button>
