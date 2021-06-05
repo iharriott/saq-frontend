@@ -17,7 +17,7 @@ export class QuoteInfoComponent implements OnInit {
   ngOnInit(): void {
 
     this.quoteInfoForm = this.formBuilder.group({
-      quoteDate: Date(),
+      quoteDate: new Date().toLocaleDateString(),
       quoteStatus: 'Open',
       contractType: 'Construction Gold',
       description: '',
@@ -26,14 +26,17 @@ export class QuoteInfoComponent implements OnInit {
       owner: 'demouser1 Uptake',
       mobilePhoneNo: '222-534-9999',
       officePhoneNo: '666-121-6758',
+      faxNo: '',
       diffOwner: '',
+      cpi: 'Yes',
+      stage: '',
       comments: 'Need to revise'
     });
   }
 
   quoteInfoSubmit() {
     this.quoteService.quoteInfoItems.push(this.quoteInfoForm.value);
-    console.log(' form value', this.quoteService.quoteInfoItems);
+    console.log('quote info form value:', this.quoteService.quoteInfoItems);
   }
 
 }

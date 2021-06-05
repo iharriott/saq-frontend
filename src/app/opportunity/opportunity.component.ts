@@ -25,7 +25,8 @@ export class OpportunityComponent implements OnInit {
   }
 
   opportunitySubmit() {
-
+    this.quoteService.opportunityItems.push(this.opportunityForm.value);
+    console.log('opportunity form value:', this.quoteService.opportunityItems);
   }
 
 }
