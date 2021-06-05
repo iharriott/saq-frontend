@@ -27,8 +27,6 @@ export class QuoteHeaderComponent implements OnInit {
         });
   }
 
-  onSumbit() {
-    //console.log(this.quoteForm.getRawValue());
-  }
+  quoteHeaderSubmit(){}
 
 }

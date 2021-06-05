@@ -2,7 +2,7 @@
 
 <form [formGroup]="opportunityForm">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-2">
       <div class="mb-3">
         <mat-form-field appearance="fill">
           <mat-label>Opportunity No</mat-label>
@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-2">
       <div class="mb-3">
         <mat-form-field appearance="fill">
           <mat-label>Estimated Delivery</mat-label>
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-2">
       <div class="mb-3">
         <mat-form-field appearance="fill">
           <mat-label>Prob Closing</mat-label>
@@ -28,10 +28,8 @@
         </mat-form-field>
       </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-2">
       <div class="mb-3">
         <mat-form-field appearance="fill">
           <mat-label>Source</mat-label>
@@ -39,7 +37,8 @@
         </mat-form-field>
       </div>
     </div>
-    <div class="col-md-4">
+
+    <div class="col-md-2">
       <div class="mb-3">
         <mat-form-field appearance="fill">
           <mat-label>Commodity</mat-label>
@@ -47,6 +46,25 @@
         </mat-form-field>
       </div>
     </div>
+
   </div>
- 
+
+  <div class="row">
+   
+   
+  </div>
+  <div class="row">
+    <div class="form-group col-md-1 offset-md-11">
+      <button
+        class="button_example"
+        mat-button
+        mat-flat-button
+        color="primary"
+        (click)="opportunitySubmit()"
+      >
+      <i class="fa fa-database"></i>
+        Save
+      </button>
+    </div>
+  </div>
 </form>

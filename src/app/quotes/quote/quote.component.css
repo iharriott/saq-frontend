@@ -52,3 +52,8 @@ td.mat-cell {
     margin-bottom: 10px;
     margin-top: 10px;
   }
+
+  div
+   {
+      margin-bottom: 0em !important; /* change it as per your requirment */
+    }

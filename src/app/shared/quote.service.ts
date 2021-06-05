@@ -19,6 +19,7 @@ export class QuoteService {
   opportunityItems: Opportunity[] = [];
   contactItems: Contact[] = [];
   isReadOnly: boolean = false;
+  hideButton: boolean = false;
 
 
   constructor() { }

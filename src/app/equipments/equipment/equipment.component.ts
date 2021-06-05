@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuoteService } from '../../../app/shared/quote.service';
@@ -15,6 +16,7 @@ export class EquipmentComponent implements OnInit {
   ngOnInit(): void {
     if(this.router.url.indexOf('quote') < 0){
       this.quoteService.isReadOnly = true;
+      this.quoteService.hideButton = true;
     }
 
   }

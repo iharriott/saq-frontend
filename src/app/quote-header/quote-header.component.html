@@ -1,4 +1,4 @@
-<form [formGroup]="quoteService.quoteFormOverview" (submit)="onSumbit()">
+<form [formGroup]="quoteService.quoteFormOverview" >
     <div class="row">
       <h3>Quotes</h3>
       <div class="col-md-4">
@@ -82,6 +82,20 @@
             <input matInput type="text" formControlName="grandTotal" readonly />
           </mat-form-field>
         </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="!quoteService.hideButton">
+      <div class="form-group col-md-1 offset-md-11">
+        <button
+          class="button_example"
+          mat-button
+          mat-flat-button
+          color="primary"
+          (click)="quoteHeaderSubmit()"
+        >
+        <i class="fa fa-database"></i>
+          Save
+        </button>
       </div>
     </div>
   </form>
