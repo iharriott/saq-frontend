@@ -4,19 +4,23 @@
 
 <mat-horizontal-stepper linear #stepper>
   <mat-step label="Quote Header" [stepControl]="" [editable]="isEditable">
-    <h3>Quotes</h3>
     <form [formGroup]="quoteService.quoteFormOverview" (submit)="onSumbit()">
       <div class="row">
+        <h3>Quotes</h3>
         <div class="col-md-3">
           <div class="mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Quote No</mat-label>
-              <input
-                matInput
-                type="text"
-                formControlName="quoteNo"
-                placeholder="QuoteNo"
-              />
+              <input matInput type="text" formControlName="quoteNo" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Owner</mat-label>
+              <input matInput type="text" formControlName="owner" />
             </mat-form-field>
           </div>
         </div>
@@ -25,15 +29,20 @@
           <div class="mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Orignator</mat-label>
-              <input
-                matInput
-                type="text"
-                formControlName="orignator"
-                placeholder="Orignator"
-              />
+              <input matInput type="text" formControlName="orignator" />
             </mat-form-field>
           </div>
         </div>
+
+        <div class="col-md-3">
+          <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Description</mat-label>
+              <input matInput type="text" formControlName="description" />
+            </mat-form-field>
+          </div>
+        </div>
+
         <div class="form-group">
           <button
             class="button_example"
@@ -45,17 +54,14 @@
             Save
           </button>
         </div>
-
+      </div>
+      <div class="row">
+        <h3>OED MECHANICAL SERVICES INC(1753320)</h3>
         <div class="col-md-3">
           <div class="mb-3">
             <mat-form-field appearance="fill">
               <mat-label>PhoneNo</mat-label>
-              <input
-                matInput
-                type="text"
-                formControlName="phoneNo"
-                placeholder="PhoneNo"
-              />
+              <input matInput type="text" formControlName="phoneNo" />
             </mat-form-field>
           </div>
         </div>
@@ -64,30 +70,40 @@
           <div class="mb-3">
             <mat-form-field appearance="fill">
               <mat-label>PO No</mat-label>
-              <input
-                matInput
-                type="text"
-                formControlName="PONo"
-                placeholder="PONo"
-              />
-            </mat-form-field>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="mb-3">
-            <mat-form-field appearance="fill">
-              <mat-label>Grand Total</mat-label>
-              <input
-                matInput
-                type="text"
-                formControlName="grandTotal"
-                placeholder="GrandTotal"
-              />
+              <input matInput type="text" formControlName="PONo" />
             </mat-form-field>
           </div>
         </div>
       </div>
+
+      <div class="row">
+        <h3>Totals: Revision 2</h3>
+        <div class="col-md-3">
+          <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Total</mat-label>
+              <input matInput type="text" formControlName="total" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Total Discount</mat-label>
+              <input matInput type="text" formControlName="totalDiscount" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Grand Total</mat-label>
+              <input matInput type="text" formControlName="grandTotal" />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
       <div class="form-group">
         <button
           class="button_example"
@@ -117,8 +133,18 @@
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
     <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button mat-flat-button color="primary" matStepperPrevious>
+        Back
+      </button>
+      <button
+        mat-button
+        mat-flat-button
+        color="primary"
+        (click)="stepper.reset()"
+        class="mr-2"
+      >
+        Reset
+      </button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

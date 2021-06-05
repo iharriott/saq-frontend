@@ -33,7 +33,8 @@ export class CustomerComponent implements OnInit {
   }
 
   customerSubmit() {
-
+    this.quoteService.customerItems.push(this.customerForm.value);
+    console.log('customer form value:', this.quoteService.customerItems);
   }
 
 }
