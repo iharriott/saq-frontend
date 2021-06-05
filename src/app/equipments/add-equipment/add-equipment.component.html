@@ -1,5 +1,5 @@
-<h3>Add Equipment</h3>
 <div class="container">
+  <h2>Add Equipment</h2>
   <div class="mb-3">
     <mat-radio-group
       aria-label="Select an option"
@@ -14,142 +14,168 @@
   </div>
 
   <form [formGroup]="addEquipmentForm">
-    <fieldset *ngIf="equipmentSelection === 'Serial No Based'">
-      <legend>Serial</legend>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="mb-3">
-            <mat-form-field appearance="standard">
-              <mat-label>Serial No</mat-label>
-              <input matInput type="text" formControlName="serialNo" />
-            </mat-form-field>
+    <div class="mb-3">
+      <fieldset *ngIf="equipmentSelection === 'Serial No Based'">
+        <legend>Serial</legend>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mb-3">
+              <mat-form-field appearance="standard">
+                <mat-label>Serial No</mat-label>
+                <input matInput type="text" formControlName="serialNo" />
+              </mat-form-field>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <mat-form-field appearance="standard">
-              <mat-label>SMU</mat-label>
-              <input matInput type="text" formControlName="smu" />
-            </mat-form-field>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <mat-form-field appearance="standard">
+                <mat-label>SMU</mat-label>
+                <input matInput type="text" formControlName="smu" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <mat-form-field appearance="standard">
+                <mat-label>Stock No</mat-label>
+                <input matInput type="text" formControlName="stockNo" />
+              </mat-form-field>
+            </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <mat-form-field appearance="standard">
-              <mat-label>Stock No</mat-label>
-              <input matInput type="text" formControlName="stockNo" />
-            </mat-form-field>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <mat-form-field appearance="standard">
+                <mat-label>Last Billed Smu</mat-label>
+                <input matInput type="text" formControlName="lastBilledSmu" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <mat-form-field appearance="standard">
+                <mat-label>Unit No</mat-label>
+                <input matInput type="text" formControlName="unitNo" />
+              </mat-form-field>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <mat-form-field appearance="standard">
-              <mat-label>Last Billed Smu</mat-label>
-              <input matInput type="text" formControlName="lastBilledSmu" />
-            </mat-form-field>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <mat-form-field appearance="standard">
+                <mat-label>Product Link</mat-label>
+                <input matInput type="text" formControlName="productLink" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <mat-form-field appearance="standard">
+                <mat-label>Annual Usage</mat-label>
+                <input matInput type="text" formControlName="annualUsage" />
+              </mat-form-field>
+            </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <mat-form-field appearance="standard">
-              <mat-label>Unit No</mat-label>
-              <input matInput type="text" formControlName="unitNo" />
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <mat-form-field appearance="standard">
-              <mat-label>Product Link</mat-label>
-              <input matInput type="text" formControlName="productLink" />
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <mat-form-field appearance="standard">
-              <mat-label>Annual Usage</mat-label>
-              <input matInput type="text" formControlName="annualUsage" />
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
-    </fieldset>
-    <div class="container selection"></div>
+      </fieldset>
 
-    <fieldset *ngIf="equipmentSelection === 'Model Based'">
-      <legend>Model</legend>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="mb-3">
-            <mat-form-field appearance="standard">
-              <mat-label>Model</mat-label>
-              <input matInput type="text" formControlName="model" />
-            </mat-form-field>
+      <fieldset *ngIf="equipmentSelection === 'Model Based'">
+        <legend>Model</legend>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mb-3">
+              <mat-form-field appearance="standard">
+                <mat-label>Model</mat-label>
+                <input matInput type="text" formControlName="model" />
+              </mat-form-field>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="mb-3">
-            <mat-form-field appearance="standard">
-              <mat-label>Make</mat-label>
-              <input matInput type="text" formControlName="make" />
-            </mat-form-field>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mb-3">
+              <mat-form-field appearance="standard">
+                <mat-label>Make</mat-label>
+                <input matInput type="text" formControlName="make" />
+              </mat-form-field>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="mb-3">
-            <mat-form-field appearance="standard">
-              <mat-label>Family</mat-label>
-              <input matInput type="text" formControlName="family" />
-            </mat-form-field>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mb-3">
+              <mat-form-field appearance="standard">
+                <mat-label>Family</mat-label>
+                <input matInput type="text" formControlName="family" />
+              </mat-form-field>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="mb-3">
-            <mat-form-field appearance="standard">
-              <mat-label>Serial No Range</mat-label>
-              <input matInput type="text" formControlName="serialNoRange" />
-            </mat-form-field>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mb-3">
+              <mat-form-field appearance="standard">
+                <mat-label>Serial No Range</mat-label>
+                <input matInput type="text" formControlName="serialNoRange" />
+              </mat-form-field>
+            </div>
           </div>
         </div>
-      </div>
-    </fieldset>
+      </fieldset>
+    </div>
 
     <fieldset>
       <legend>Contract</legend>
+      <div class="row contract">
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"><p>Start</p></div>
+            <div class="col-md-4"><p>End</p></div>
+          </div>
+          <div class="row">
+            <div class="col-md-4"><p>Hour:</p></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">Date:</div>
+            <div class="col-md-5">
+              <mat-form-field appearance="standard" class="example-form-field">
+                <mat-label>Start</mat-label>
+                <input matInput [matDatepicker]="startdatepicker" />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="startdatepicker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #startdatepicker>
+                  <mat-datepicker-actions>
+                    <button mat-button matDatepickerCancel>Cancel</button>
+                    <button
+                      mat-raised-button
+                      color="primary"
+                      matDatepickerApply
+                    >
+                      Apply
+                    </button>
+                  </mat-datepicker-actions>
+                </mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="col-md-5"></div>
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+      </div>
     </fieldset>
     <div class="row">
       <div class="col-md-2">
         <div class="mb-3">
-          <mat-form-field appearance="standard" class="example-form-field">
-            <mat-label>Start</mat-label>
-            <input matInput [matDatepicker]="startdatepicker" />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="startdatepicker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #startdatepicker>
-              <mat-datepicker-actions>
-                <button mat-button matDatepickerCancel>Cancel</button>
-                <button mat-raised-button color="primary" matDatepickerApply>
-                  Apply
-                </button>
-              </mat-datepicker-actions>
-            </mat-datepicker>
-          </mat-form-field>
-
           <mat-form-field appearance="standard" class="example-form-field">
             <mat-label>End</mat-label>
             <input matInput [matDatepicker]="enddatepicker" />
@@ -169,6 +195,7 @@
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="form-group col-md-1 offset-md-11">
         <button
@@ -179,9 +206,73 @@
           (click)="addEquipment()"
         >
           <i class="fa fa-database"></i>
-          Save
+          Add
         </button>
       </div>
     </div>
   </form>
+  <table class="table table-borderless">
+    <thead class="thead-light">
+      <th>PM History</th>
+      <th>SMU</th>
+      <th>WO No</th>
+      <th>Seg No</th>
+      <th>Opened</th>
+      <th>Closed</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="font-italic text-center" colspan="5">No Data Found</td>
+      </tr>
+
+      <tr *ngFor="">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+  <div id="outer">
+    <div class="inner">
+      <button
+        class="button_example"
+        mat-button
+        mat-flat-button
+        color="primary"
+        (click)="addEquipment()"
+      >
+        <i class="fa fa-greater-than"></i>
+        Go to Events
+      </button>
+    </div>
+    <div class="inner">
+      <button
+        class="button_example"
+        mat-button
+        mat-flat-button
+        color="primary"
+        (click)="addEquipment()"
+      >
+        <i class="fa fa-database"></i>
+        Save
+      </button>
+    </div>
+  </div>
+
+  <div class="inner">
+    <button
+      class="button_example"
+      mat-button
+      mat-flat-button
+      color="primary"
+      (click)="addEquipment()"
+    >
+      <i class="fa fa-times"></i>
+      Cancel
+    </button>
+  </div>
 </div>
