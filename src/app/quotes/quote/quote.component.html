@@ -11,7 +11,7 @@
           <div class="mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Quote No</mat-label>
-              <input matInput type="text" formControlName="quoteNo" />
+              <input matInput type="text" formControlName="quoteNo"  [readonly] ="quoteService.isReadOnly"/>
             </mat-form-field>
           </div>
         </div>

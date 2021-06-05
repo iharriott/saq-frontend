@@ -18,6 +18,7 @@ export class QuoteService {
   customerItems: Customer[] = [];
   opportunityItems: Opportunity[] = [];
   contactItems: Contact[] = [];
+  isReadOnly: boolean = false;
 
 
   constructor() { }

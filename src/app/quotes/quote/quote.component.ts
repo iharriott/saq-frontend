@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Emitters } from 'src/app/emitters/emitter';
 import { QuoteService } from 'src/app/shared/quote.service';
 import { QuoteEvent } from '../../../app/shared/quote-event.model';
@@ -19,7 +19,7 @@ export class QuoteComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private dialog: MatDialog,
     public quoteService: QuoteService,
-    private route: ActivatedRoute) { }
+    private router: Router) { }
 
   //quoteForm: FormGroup;
   eventList: QuoteEvent[] = [];
@@ -38,7 +38,9 @@ export class QuoteComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log('active route',this.route.snapshot.params);
+    if(this.router.url.indexOf('quote') < 0){
+      this.quoteService.isReadOnly = true;
+    }
 
     this.quoteService.quoteFormOverview = this.formBuilder.group({
       quoteNo: Math.floor(1000000 + Math.random() * 900000),
