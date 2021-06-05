@@ -41,9 +41,9 @@ export class AddEquipmentComponent implements OnInit {
       eventTrigger2: [{ value: '', disabled: this.quoteService.isReadOnly }],
       interval: [{ value: '', disabled: this.quoteService.isReadOnly }],
       expiresBy: [{ value: '', disabled: this.quoteService.isReadOnly }],
-      startatPm: [{ value: '', disabled: this.quoteService.isReadOnly }],
-      startPmHr: [{ value: '', disabled: this.quoteService.isReadOnly }],
-      BillingInterval: [{ value: '', disabled: this.quoteService.isReadOnly }],
+      startAtPM: [{ value: '', disabled: this.quoteService.isReadOnly }],
+      startPMHr: [{ value: '', disabled: this.quoteService.isReadOnly }],
+      billingInterval: [{ value: '', disabled: this.quoteService.isReadOnly }],
     });
   }
 

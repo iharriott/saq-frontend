@@ -128,22 +128,94 @@
       </fieldset>
     </div>
 
-    <fieldset>
+    <fieldset class="mb-3">
       <legend>Contract</legend>
-      <div class="row contract">
+      <div class="row contract-row">
+        <div class="col-md-4">
+          <div class="row label-row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"><span>Start</span></div>
+            <div class="col-md-4"><span>End</span></div>
+          </div>
+        </div>
         <div class="col-md-4">
           <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4"><p>Start</p></div>
-            <div class="col-md-4"><p>End</p></div>
+            <div class="col-md-4"><span>Event Trigger:</span></div>
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label>Event Trigger 1</mat-label>
+                <input matInput type="text" formControlName="eventTrigger1" />
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label>Event Trigger 2</mat-label>
+                <input matInput type="text" formControlName="eventTrigger2" />
+              </mat-form-field>
+            </div>
           </div>
+        </div>
+        <div class="col-md-4">
           <div class="row">
-            <div class="col-md-4"><p>Hour:</p></div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-4">Start at PM:</div>
+            <div class="col-md-7">
+              <mat-form-field appearance="standard">
+                <mat-label>Start at PM</mat-label>
+                <input matInput type="text" formControlName="startAtPM" />
+              </mat-form-field>
+            </div>
           </div>
+        </div>
+      </div>
+
+      <div class="row contract-row">
+        <div class="col-md-4">
           <div class="row">
-            <div class="col-md-2">Date:</div>
+            <div class="col-md-2"><span>Hour:</span></div>
+            <div class="col-md-5">
+              <mat-form-field appearance="standard">
+                <mat-label>Hour Start</mat-label>
+                <input matInput type="time" formControlName="hourStart" />
+              </mat-form-field>
+            </div>
+            <div class="col-md-5">
+              <mat-form-field appearance="standard">
+                <mat-label>Hour End</mat-label>
+                <input matInput type="time" formControlName="hourEnd" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-4">Interval:</div>
+            <div class="col-md-8">
+              <mat-form-field appearance="standard">
+                <mat-label>Interval</mat-label>
+                <input matInput type="text" formControlName="interval" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">Start PM Hr:</div>
+            <div class="col-md-7">
+              <mat-form-field appearance="standard">
+                <mat-label>Start PM Hr</mat-label>
+                <input matInput type="text" formControlName="startPMHr" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row contract-row">
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-2 side-label"><span>Date:</span></div>
             <div class="col-md-5">
               <mat-form-field appearance="standard" class="example-form-field">
                 <mat-label>Start</mat-label>
@@ -166,50 +238,55 @@
                 </mat-datepicker>
               </mat-form-field>
             </div>
-            <div class="col-md-5"></div>
+            <div class="col-md-5">
+              <mat-form-field appearance="standard" class="example-form-field">
+                <mat-label>End</mat-label>
+                <input matInput [matDatepicker]="enddatepicker" />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="enddatepicker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #enddatepicker>
+                  <mat-datepicker-actions>
+                    <button mat-button matDatepickerCancel>Cancel</button>
+                    <button
+                      mat-raised-button
+                      color="primary"
+                      matDatepickerApply
+                    >
+                      Apply
+                    </button>
+                  </mat-datepicker-actions>
+                </mat-datepicker>
+              </mat-form-field>
+            </div>
           </div>
         </div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
-      </div>
-    </fieldset>
-    <div class="row">
-      <div class="col-md-2">
-        <div class="mb-3">
-          <mat-form-field appearance="standard" class="example-form-field">
-            <mat-label>End</mat-label>
-            <input matInput [matDatepicker]="enddatepicker" />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="enddatepicker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #enddatepicker>
-              <mat-datepicker-actions>
-                <button mat-button matDatepickerCancel>Cancel</button>
-                <button mat-raised-button color="primary" matDatepickerApply>
-                  Apply
-                </button>
-              </mat-datepicker-actions>
-            </mat-datepicker>
-          </mat-form-field>
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-4">Expires By:</div>
+            <div class="col-md-8">
+              <mat-form-field appearance="standard">
+                <mat-label>Expires By</mat-label>
+                <input matInput type="text" formControlName="expiresBy" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">Billing Interval:</div>
+            <div class="col-md-7">
+              <mat-form-field appearance="standard">
+                <mat-label>Billing Interval</mat-label>
+                <input matInput type="text" formControlName="billingInterval" />
+              </mat-form-field>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="form-group col-md-1 offset-md-11">
-        <button
-          class="button_example"
-          mat-button
-          mat-flat-button
-          color="primary"
-          (click)="addEquipment()"
-        >
-          <i class="fa fa-database"></i>
-          Add
-        </button>
-      </div>
-    </div>
+    </fieldset>
   </form>
   <table class="table table-borderless">
     <thead class="thead-light">
@@ -236,38 +313,32 @@
     </tbody>
   </table>
   <hr />
-  <div id="outer">
-    <div class="inner">
-      <button
-        class="button_example"
-        mat-button
-        mat-flat-button
-        color="primary"
-        (click)="addEquipment()"
-      >
-        <i class="fa fa-greater-than"></i>
-        Go to Events
-      </button>
-    </div>
-    <div class="inner">
-      <button
-        class="button_example"
-        mat-button
-        mat-flat-button
-        color="primary"
-        (click)="addEquipment()"
-      >
-        <i class="fa fa-database"></i>
-        Save
-      </button>
-    </div>
-  </div>
-
-  <div class="inner">
+  <div class="button-row">
     <button
       class="button_example"
       mat-button
       mat-flat-button
+      color="primary"
+      (click)="addEquipment()"
+    >
+      <i class="fa fa-greater-than"></i>
+      Go to Events
+    </button>
+    <button
+      class="button_example"
+      mat-button
+      mat-flat-button
+      color="primary"
+      (click)="addEquipment()"
+    >
+      <i class="fa fa-database"></i>
+      Save
+    </button>
+    <button
+      class="button_example"
+      mat-button
+      mat-flat-button
+      mat-dialog-close
       color="primary"
       (click)="addEquipment()"
     >

@@ -13,10 +13,27 @@ fieldset {
   padding: 20px;
   width: inherit;
 }
-#outer {
+
+mat-form-field {
   width: 100%;
-  text-align: center;
 }
-.inner {
-  display: inline-block;
+.contract > div > div {
+  align-items: center;
+}
+
+.contract-row > div > div {
+  align-items: center;
+}
+
+.label-row {
+  min-height: 70.13px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-row > button {
+  margin-left: 10px;
 }

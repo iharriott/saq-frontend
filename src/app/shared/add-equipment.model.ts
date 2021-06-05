@@ -18,7 +18,7 @@ export class AddEquipment {
   eventTrigger2: string;
   interval: string;
   expiresBy: string;
-  startatPm: string;
-  startPmHr: number;
+  startAtPM: string;
+  startPMHr: number;
   BillingInterval: string;
 }

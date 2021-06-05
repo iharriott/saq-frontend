@@ -17,7 +17,7 @@ export class EquipmentComponent implements OnInit {
     private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    if(this.router.url.indexOf('quote') < 0){
+    if (this.router.url.indexOf('quote') < 0) {
       this.quoteService.isReadOnly = true;
       this.quoteService.hideButton = true;
     }
@@ -25,12 +25,13 @@ export class EquipmentComponent implements OnInit {
   }
 
   addEquipment(eventIndex, quoteNo) {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus = true;
-    dialogConfig.disableClose = true;
-    dialogConfig.width = '50%';
-    dialogConfig.data = { eventIndex, quoteNo };
-    this.dialog.open(AddEquipmentComponent, dialogConfig);
+    this.dialog.open(AddEquipmentComponent, {
+      autoFocus: true,
+      disableClose: true,
+      width: '60%',
+      data: { eventIndex, quoteNo },
+      height: '90vh'
+    });
   }
 
 }
