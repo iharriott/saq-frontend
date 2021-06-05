@@ -90,9 +90,79 @@
         (click)="addEquipment()"
       >
       <i class="fa fa-database"></i>
-        Save
+        Add
       </button>
     </div>
   </div>
 </form>
+<table class="table table-borderless">
+    <thead class="thead-light">
+      <th>PM History</th>
+      <th>SMU</th>
+      <th>WO No</th>
+      <th>Seg No</th>
+      <th>Opened</th>
+      <th>Closed</th>
+    </thead>
+    <tbody>
+      <tr >
+        <td class="font-italic text-center" colspan="5">
+          No Data Found
+        </td>
+      </tr>
+  
+      <tr *ngFor="">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+       
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <div id="outer">
+      <div class="inner"> 
+        <button
+        class="button_example"
+        mat-button
+        mat-flat-button
+        color="primary"
+        (click)="addEquipment()"
+      >
+      <i class="fa fa-greater-than"></i>
+        Go to Events
+      </button>
+      </div>
+      <div class="inner">
+        <button
+    class="button_example"
+    mat-button
+    mat-flat-button
+    color="primary"
+    (click)="addEquipment()"
+  >
+  <i class="fa fa-database"></i>
+    Save
+  </button>
+
+</div>
+
+<div class="inner">
+    <button
+    class="button_example"
+    mat-button
+    mat-flat-button
+    color="primary"
+    (click)="addEquipment()"
+  >
+  <i class="fa fa-times"></i>
+    Cancel
+  </button>
+</div>
+   
+  </div>
+
 
