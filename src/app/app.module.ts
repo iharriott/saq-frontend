@@ -32,6 +32,8 @@ import { OpportunityComponent } from './opportunity/opportunity.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatStepperModule} from '@angular/material/stepper';
+import { EquipmentsComponent } from './equipments/equipments.component';
+import { EquipmentComponent } from './equipments/equipment/equipment.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import {MatStepperModule} from '@angular/material/stepper';
     QuoteInfoComponent,
     CustomerComponent,
     ContactComponent,
-    OpportunityComponent
+    OpportunityComponent,
+    EquipmentsComponent,
+    EquipmentComponent
   ],
   imports: [
     BrowserModule,

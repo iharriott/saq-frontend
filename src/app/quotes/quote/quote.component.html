@@ -7,7 +7,7 @@
     <form [formGroup]="quoteService.quoteFormOverview" (submit)="onSumbit()">
       <div class="row">
         <h3>Quotes</h3>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Quote No</mat-label>
@@ -16,7 +16,7 @@
           </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Owner</mat-label>
@@ -25,7 +25,7 @@
           </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Orignator</mat-label>
@@ -33,52 +33,40 @@
             </mat-form-field>
           </div>
         </div>
-
-        <div class="col-md-3">
-          <div class="mb-3">
-            <mat-form-field appearance="fill">
-              <mat-label>Description</mat-label>
-              <input matInput type="text" formControlName="description" />
-            </mat-form-field>
-          </div>
         </div>
 
-        <div class="form-group">
-          <button
-            class="button_example"
-            mat-button
-            mat-flat-button
-            color="primary"
-            (click)="addOrEditEvents(null, null)"
-          >
-            Save
-          </button>
-        </div>
-      </div>
-      <div class="row">
-        <h3>OED MECHANICAL SERVICES INC(1753320)</h3>
-        <div class="col-md-3">
-          <div class="mb-3">
-            <mat-form-field appearance="fill">
-              <mat-label>PhoneNo</mat-label>
-              <input matInput type="text" formControlName="phoneNo" />
-            </mat-form-field>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="mb-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Description</mat-label>
+                <input matInput type="text" formControlName="description" />
+              </mat-form-field>
+            </div>
           </div>
-        </div>
+          
+          <div class="col-md-4">
+            <div class="mb-3">
+              <mat-form-field appearance="fill">
+                <mat-label>PhoneNo</mat-label>
+                <input matInput type="text" formControlName="phoneNo" />
+              </mat-form-field>
+            </div>
+          </div>
 
-        <div class="col-md-3">
-          <div class="mb-3">
-            <mat-form-field appearance="fill">
-              <mat-label>PO No</mat-label>
-              <input matInput type="text" formControlName="PONo" />
-            </mat-form-field>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <mat-form-field appearance="fill">
+                <mat-label>PO No</mat-label>
+                <input matInput type="text" formControlName="PONo" />
+              </mat-form-field>
+            </div>
           </div>
+
         </div>
-      </div>
 
       <div class="row">
-        <h3>Totals: Revision 2</h3>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Total</mat-label>
@@ -86,7 +74,7 @@
             </mat-form-field>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Total Discount</mat-label>
@@ -94,7 +82,7 @@
             </mat-form-field>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Grand Total</mat-label>
@@ -102,18 +90,6 @@
             </mat-form-field>
           </div>
         </div>
-      </div>
-
-      <div class="form-group">
-        <button
-          class="button_example"
-          mat-button
-          mat-flat-button
-          color="primary"
-          (click)="addOrEditEvents(null, null)"
-        >
-          Save1
-        </button>
       </div>
     </form>
   </mat-step>
@@ -149,14 +125,7 @@
   </mat-step>
 </mat-horizontal-stepper>
 
-<div class="form-group">
-  <button type="submit" class="btn btn-dark">
-    <i class="fa fa-database"></i> Submit
-  </button>
-  <a class="btn btn-outline-dark ml-1" routerLink="/orders"
-    ><i class="fa fa-table"></i> View Orders</a
-  >
-</div>
+
 <div class="form-group">
   <button class="button_example2" mat-flat-button color="primary">Save</button>
 </div>
