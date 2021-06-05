@@ -39,6 +39,8 @@ export class QuoteComponent implements OnInit {
   ngOnInit(): void {
 
     this.quoteService.hideButton = false;
+    this.quoteService.isReadOnly = false;
+    
     if(this.router.url.indexOf('quote') < 0){
       this.quoteService.isReadOnly = true;
     }
