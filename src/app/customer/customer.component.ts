@@ -16,18 +16,18 @@ export class CustomerComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerForm = this.formBuilder.group({
-      name: 'OED MECHANICAL SERVICES INC(1753320)',
-      poNo: '',
-      poReq: '',
-      address: '31 River Lane',
-      cityState: 'CA',
-      zip: '91326',
-      phone: '',
-      taxCodes: '45',
-      exemptNo: 5656,
-      chargeCode: 'FI3',
-      prevWage: 2000,
-      terms: 'Charge(2)'
+      name: [{value: 'OED MECHANICAL SERVICES INC(1753320)', disabled:  this.quoteService.isReadOnly}],
+      poNo: [{value: '', disabled:  this.quoteService.isReadOnly}],
+      poReq: [{value: '', disabled:  this.quoteService.isReadOnly}],
+      address: [{value: '31 River Lane', disabled:  this.quoteService.isReadOnly}], 
+      cityState: [{value: 'CA', disabled:  this.quoteService.isReadOnly}], 
+      zip:  [{value: '91326', disabled:  this.quoteService.isReadOnly}],
+      phone: [{value: '', disabled:  this.quoteService.isReadOnly}],
+      taxCodes: [{value: '45', disabled:  this.quoteService.isReadOnly}], 
+      exemptNo: [{value: 5656, disabled:  this.quoteService.isReadOnly}],
+      chargeCode: [{value: 'FI3', disabled:  this.quoteService.isReadOnly}], 
+      prevWage: [{value: 2000, disabled:  this.quoteService.isReadOnly}],
+      terms: [{value: 'Charge(2)', disabled:  this.quoteService.isReadOnly}], 
     });
 
   }

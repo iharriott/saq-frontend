@@ -41,19 +41,8 @@ export class QuoteComponent implements OnInit {
     if(this.router.url.indexOf('quote') < 0){
       this.quoteService.isReadOnly = true;
     }
-
-    this.quoteService.quoteFormOverview = this.formBuilder.group({
-      quoteNo: Math.floor(1000000 + Math.random() * 900000),
-      hmoContractor: '',
-      owner: 'demouser1 Uptake',
-      orignator: 'demouser1 Uptake',
-      description: '',
-      phoneNo: '',
-      PONo: '',
-      total: 4960,
-      totalDiscount: 0,
-      grandTotal: 4960
-    });
+    
+    
     //this.eventList.push(this.myEvent);
     this.dataSource.data = this.eventList;
     console.log('initial data', this.dataSource.data);
@@ -74,10 +63,7 @@ export class QuoteComponent implements OnInit {
 
   }
 
-  onSumbit() {
-    //console.log(this.quoteForm.getRawValue());
-  }
-
+  
   openDialog(action: string, elem: any) {
 
   }

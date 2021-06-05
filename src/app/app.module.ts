@@ -34,6 +34,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatStepperModule} from '@angular/material/stepper';
 import { EquipmentsComponent } from './equipments/equipments.component';
 import { EquipmentComponent } from './equipments/equipment/equipment.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { QuoteHeaderComponent } from './quote-header/quote-header.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { EquipmentComponent } from './equipments/equipment/equipment.component';
     ContactComponent,
     OpportunityComponent,
     EquipmentsComponent,
-    EquipmentComponent
+    EquipmentComponent,
+    QuoteHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +77,8 @@ import { EquipmentComponent } from './equipments/equipment/equipment.component';
     MatExpansionModule, 
     MatDatepickerModule,
     MatStepperModule,
+    MatTabsModule,
+    
     
   ],
   exports:[

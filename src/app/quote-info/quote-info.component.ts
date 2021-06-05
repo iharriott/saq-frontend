@@ -18,19 +18,19 @@ export class QuoteInfoComponent implements OnInit {
 
     this.quoteInfoForm = this.formBuilder.group({
       quoteDate: new Date().toLocaleDateString(),
-      quoteStatus: 'Open',
-      contractType: 'Construction Gold',
-      description: '',
-      branch: 'Branch00',
-      costCenter: 'GR BENSALEM PA',
-      owner: 'demouser1 Uptake',
-      mobilePhoneNo: '222-534-9999',
-      officePhoneNo: '666-121-6758',
-      faxNo: '',
-      diffOwner: '',
-      cpi: 'Yes',
-      stage: '',
-      comments: 'Need to revise'
+      quoteStatus: [{value: 'Open', disabled:  this.quoteService.isReadOnly}],
+      contractType: [{value: 'Construction Gold', disabled:  this.quoteService.isReadOnly}], 
+      description:  [{value: '', disabled:  this.quoteService.isReadOnly}], 
+      branch: [{value: 'Branch00', disabled:  this.quoteService.isReadOnly}], 
+      costCenter: [{value: 'GR BENSALEM PA', disabled:  this.quoteService.isReadOnly}], 
+      owner: [{value: 'demouser1 Uptake', disabled:  this.quoteService.isReadOnly}],
+      mobilePhoneNo: [{value: '222-534-9999', disabled:  this.quoteService.isReadOnly}],
+      officePhoneNo: [{value: '666-121-6758', disabled:  this.quoteService.isReadOnly}],
+      faxNo: [{value: '', disabled:  this.quoteService.isReadOnly}],
+      diffOwner: [{value: '', disabled:  this.quoteService.isReadOnly}],
+      cpi: [{value: 'Yes', disabled:  this.quoteService.isReadOnly}],
+      stage:[{value: '', disabled:  this.quoteService.isReadOnly}],
+      comments: [{value: 'Need to revise', disabled:  this.quoteService.isReadOnly}],
     });
   }
 

@@ -1,0 +1,87 @@
+<form [formGroup]="quoteService.quoteFormOverview" (submit)="onSumbit()">
+    <div class="row">
+      <h3>Quotes</h3>
+      <div class="col-md-4">
+        <div class="mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Quote No</mat-label>
+            <input matInput type="text" formControlName="quoteNo"  readonly />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Owner</mat-label>
+            <input matInput type="text" formControlName="owner" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Orignator</mat-label>
+            <input matInput type="text" formControlName="orignator" />
+          </mat-form-field>
+        </div>
+      </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Description</mat-label>
+              <input matInput type="text" formControlName="description" />
+            </mat-form-field>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>PhoneNo</mat-label>
+              <input matInput type="text" formControlName="phoneNo" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>PO No</mat-label>
+              <input matInput type="text" formControlName="PONo" />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Total</mat-label>
+            <input matInput type="text" formControlName="total"  readonly/>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Total Discount</mat-label>
+            <input matInput type="text" formControlName="totalDiscount" readonly />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Grand Total</mat-label>
+            <input matInput type="text" formControlName="grandTotal" readonly />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form>
