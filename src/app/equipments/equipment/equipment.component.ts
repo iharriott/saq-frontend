@@ -17,7 +17,7 @@ export class EquipmentComponent implements OnInit {
     private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    if(this.router.url.indexOf('quote') < 0){
+    if(this.router.url.indexOf('quote') < 0 || this.router.url.indexOf('add') < 0){
       this.quoteService.isReadOnly = true;
       this.quoteService.hideButton = true;
     }

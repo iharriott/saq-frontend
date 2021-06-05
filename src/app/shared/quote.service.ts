@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Equipment } from '../interfaces/equipment';
 import { Contact } from './contact.model';
 import { Customer } from './customer.model';
 import { Opportunity } from './opportunity.model';
@@ -20,6 +21,7 @@ export class QuoteService {
   contactItems: Contact[] = [];
   isReadOnly: boolean = false;
   hideButton: boolean = false;
+  equipmentList: Equipment[] = [];
 
 
   constructor() { }
