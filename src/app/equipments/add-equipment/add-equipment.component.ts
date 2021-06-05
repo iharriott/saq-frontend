@@ -13,13 +13,26 @@ export class AddEquipmentComponent implements OnInit {
     public quoteService: QuoteService) { }
 
   equipmentSelection: string = 'Serial No Based';
+
   equipmentSelections: string[] = ['Serial No Based', 'Model Based'];
+
+  eventTriggerList: number[];
+  eventTriggerMetricsList: string[];
+  intervalList: string[];
+  expiresByList: string[];
+  startPMList: string[];
 
   radioOptions: FormGroup;
 
   addEquipmentForm: FormGroup;
 
   ngOnInit(): void {
+
+    this.eventTriggerList = this.quoteService.eventTriggerList;
+    this.eventTriggerMetricsList = this.quoteService.eventTriggerMetricsList;
+    this.intervalList = this.quoteService.intervalList;
+    this.expiresByList = this.quoteService.expiresByList;
+    this.startPMList = this.quoteService.startPMList;
 
     this.addEquipmentForm = this.formBuilder.group({
       serialNo: [{ value: '', disabled: this.quoteService.isReadOnly }],
@@ -33,12 +46,12 @@ export class AddEquipmentComponent implements OnInit {
       make: [{ value: '', disabled: this.quoteService.isReadOnly }],
       family: [{ value: '', disabled: this.quoteService.isReadOnly }],
       serialNoRange: [{ value: '', disabled: this.quoteService.isReadOnly }],
-      hourStart: [{ value: '', disabled: this.quoteService.isReadOnly }],
-      hourEnd: [{ value: '', disabled: this.quoteService.isReadOnly }],
+      hourStart: [{ value: 0, disabled: this.quoteService.isReadOnly }],
+      hourEnd: [{ value: 0, disabled: this.quoteService.isReadOnly }],
       dateStart: new Date().toLocaleDateString(),
       dateEnd: new Date().toLocaleDateString(),
-      eventTrigger1: [{ value: '', disabled: this.quoteService.isReadOnly }],
-      eventTrigger2: [{ value: '', disabled: this.quoteService.isReadOnly }],
+      eventTrigger: [{ value: '', disabled: this.quoteService.isReadOnly }],
+      eventTriggerMetric: [{ value: '', disabled: this.quoteService.isReadOnly }],
       interval: [{ value: '', disabled: this.quoteService.isReadOnly }],
       expiresBy: [{ value: '', disabled: this.quoteService.isReadOnly }],
       startAtPM: [{ value: '', disabled: this.quoteService.isReadOnly }],
@@ -47,6 +60,8 @@ export class AddEquipmentComponent implements OnInit {
     });
   }
 
-  addEquipment() { }
+  addEquipment() {
+    console.log('test');
+  }
 
 }

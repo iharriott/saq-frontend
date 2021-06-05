@@ -143,14 +143,28 @@
             <div class="col-md-4"><span>Event Trigger:</span></div>
             <div class="col-md-4">
               <mat-form-field appearance="standard">
-                <mat-label>Event Trigger 1</mat-label>
-                <input matInput type="text" formControlName="eventTrigger1" />
+                <mat-label>Event Trigger</mat-label>
+                <mat-select formControlName="eventTrigger">
+                  <mat-option
+                    *ngFor="let eventTrigger of eventTriggerList"
+                    [value]="eventTrigger"
+                  >
+                    {{ eventTrigger }}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
             </div>
             <div class="col-md-4">
               <mat-form-field appearance="standard">
-                <mat-label>Event Trigger 2</mat-label>
-                <input matInput type="text" formControlName="eventTrigger2" />
+                <mat-label>Event Trigger Metric</mat-label>
+                <mat-select formControlName="eventTriggerMetric">
+                  <mat-option
+                    *ngFor="let eventTriggerMetric of eventTriggerMetricsList"
+                    [value]="eventTriggerMetric"
+                  >
+                    {{ eventTriggerMetric }}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
             </div>
           </div>
@@ -162,7 +176,14 @@
             <div class="col-md-7">
               <mat-form-field appearance="standard">
                 <mat-label>Start at PM</mat-label>
-                <input matInput type="text" formControlName="startAtPM" />
+                <mat-select formControlName="startAtPM">
+                  <mat-option
+                    *ngFor="let startPM of startPMList"
+                    [value]="startPM"
+                  >
+                    {{ startPM }}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
             </div>
           </div>
@@ -176,13 +197,13 @@
             <div class="col-md-5">
               <mat-form-field appearance="standard">
                 <mat-label>Hour Start</mat-label>
-                <input matInput type="time" formControlName="hourStart" />
+                <input matInput type="number" formControlName="hourStart" />
               </mat-form-field>
             </div>
             <div class="col-md-5">
               <mat-form-field appearance="standard">
                 <mat-label>Hour End</mat-label>
-                <input matInput type="time" formControlName="hourEnd" />
+                <input matInput type="number" formControlName="hourEnd" />
               </mat-form-field>
             </div>
           </div>
@@ -193,7 +214,14 @@
             <div class="col-md-8">
               <mat-form-field appearance="standard">
                 <mat-label>Interval</mat-label>
-                <input matInput type="text" formControlName="interval" />
+                <mat-select formControlName="interval">
+                  <mat-option
+                    *ngFor="let interval of intervalList"
+                    [value]="interval"
+                  >
+                    {{ interval }}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
             </div>
           </div>
@@ -205,7 +233,7 @@
             <div class="col-md-7">
               <mat-form-field appearance="standard">
                 <mat-label>Start PM Hr</mat-label>
-                <input matInput type="text" formControlName="startPMHr" />
+                <input matInput type="number" formControlName="startPMHr" />
               </mat-form-field>
             </div>
           </div>
@@ -268,7 +296,14 @@
             <div class="col-md-8">
               <mat-form-field appearance="standard">
                 <mat-label>Expires By</mat-label>
-                <input matInput type="text" formControlName="expiresBy" />
+                <mat-select formControlName="expiresBy">
+                  <mat-option
+                    *ngFor="let expiresBy of expiresByList"
+                    [value]="expiresBy"
+                  >
+                    {{ expiresBy }}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
             </div>
           </div>

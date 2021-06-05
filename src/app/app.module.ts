@@ -39,6 +39,7 @@ import { QuoteHeaderComponent } from './quote-header/quote-header.component';
 import { AddEquipmentComponent } from './equipments/add-equipment/add-equipment.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -86,7 +87,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatTabsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule
 
   ],
   exports: [

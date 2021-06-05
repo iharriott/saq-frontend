@@ -35,5 +35,9 @@ mat-form-field {
 }
 
 .button-row > button {
-  margin-left: 10px;
+  margin-left: 1em;
+}
+
+.contract > span {
+  font-weight: 700;
 }
