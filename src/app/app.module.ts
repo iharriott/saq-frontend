@@ -36,6 +36,10 @@ import { EquipmentsComponent } from './equipments/equipments.component';
 import { EquipmentComponent } from './equipments/equipment/equipment.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { QuoteHeaderComponent } from './quote-header/quote-header.component';
+import { AddEquipmentComponent } from './equipments/add-equipment/add-equipment.component';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
 
 @NgModule({
   declarations: [
@@ -51,7 +55,8 @@ import { QuoteHeaderComponent } from './quote-header/quote-header.component';
     OpportunityComponent,
     EquipmentsComponent,
     EquipmentComponent,
-    QuoteHeaderComponent
+    QuoteHeaderComponent,
+    AddEquipmentComponent
   ],
   imports: [
     BrowserModule,
@@ -78,8 +83,9 @@ import { QuoteHeaderComponent } from './quote-header/quote-header.component';
     MatDatepickerModule,
     MatStepperModule,
     MatTabsModule,
-    
-    
+    MatDatepickerModule,
+    MatNativeDateModule
+  
   ],
   exports:[
     MatFormFieldModule
