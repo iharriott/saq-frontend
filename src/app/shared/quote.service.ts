@@ -22,6 +22,12 @@ export class QuoteService {
   isReadOnly: boolean = false;
   hideButton: boolean = false;
   equipmentList: Equipment[] = [];
+  eventTriggerList: number[]= [25,50,100, 200];
+  eventTriggerListMetrics: string[]= ['Hours','kilometers','miles'];
+  intervalList: string[] = ['Fixed','Rolling'];
+  expiredByList: string[] = ['Both','Hours','Date'];
+  startPMList: string[] = ['PM1','PM2','PM3','PM4'];
+  startPMHrList: number[] = [250, 500];
 
 
   constructor() { }
