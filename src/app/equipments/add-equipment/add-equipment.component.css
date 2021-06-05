@@ -1,0 +1,15 @@
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+legend {
+  float: none;
+  padding: 0 5px;
+  width: auto;
+}
+fieldset {
+  border: 1px solid black;
+  box-sizing: border-box;
+  grid-area: 1 / 1;
+  padding: 20px;
+  width: inherit;
+}

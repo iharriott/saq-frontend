@@ -18,10 +18,10 @@ import { QuotesComponent } from './quotes/quotes.component';
 import { QuoteComponent } from './quotes/quote/quote.component';
 import { QuoteEventsComponent } from './quotes/quote-events/quote-events.component';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { QuoteDataTableComponent } from './quote-data-table/quote-data-table.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -29,15 +29,16 @@ import { QuoteInfoComponent } from './quote-info/quote-info.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ContactComponent } from './contact/contact.component';
 import { OpportunityComponent } from './opportunity/opportunity.component';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatStepperModule } from '@angular/material/stepper';
 import { EquipmentsComponent } from './equipments/equipments.component';
 import { EquipmentComponent } from './equipments/equipment/equipment.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { QuoteHeaderComponent } from './quote-header/quote-header.component';
 import { AddEquipmentComponent } from './equipments/add-equipment/add-equipment.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 
@@ -79,15 +80,16 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDialogModule,
     MatPaginatorModule,
     MatSortModule,
-    MatExpansionModule, 
+    MatExpansionModule,
     MatDatepickerModule,
     MatStepperModule,
     MatTabsModule,
     MatDatepickerModule,
-    MatNativeDateModule
-  
+    MatNativeDateModule,
+    MatRadioModule
+
   ],
-  exports:[
+  exports: [
     MatFormFieldModule
   ],
   entryComponents: [],
