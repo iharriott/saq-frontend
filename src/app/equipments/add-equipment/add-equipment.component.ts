@@ -12,7 +12,7 @@ export class AddEquipmentComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     public quoteService: QuoteService) { }
 
-  equipmentToggle: boolean = false;
+  equipmentToggle: boolean = true;
   equipmentSelection: string = 'Serial No Based';
 
   equipmentSelections: string[] = ['Serial No Based', 'Model Based'];
