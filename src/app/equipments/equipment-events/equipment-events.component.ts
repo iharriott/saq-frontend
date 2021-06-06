@@ -23,7 +23,6 @@ export class EquipmentEventsComponent implements OnInit {
   }
 
   addEventsFormGroup() : FormGroup{
-
     return this.formBuilder.group({
      selectedEvent: [''],
      event: [''],
@@ -37,6 +36,10 @@ export class EquipmentEventsComponent implements OnInit {
   addEventsButtonClick(): void{
     (<FormArray>this.addEquipmentEventsForm.get('events')).push(this.addEventsFormGroup());
   }
+
+ removeEventButtonClick(eventGroupIndex: number): void{
+   (<FormArray>this.addEquipmentEventsForm.get('events')).removeAt(eventGroupIndex);
+}
 
   
 }
