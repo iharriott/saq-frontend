@@ -29,6 +29,8 @@ export class AddEquipmentComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.quoteService.isReadOnly = false;
+
     this.eventTriggerList = this.quoteService.eventTriggerList;
     this.eventTriggerMetricsList = this.quoteService.eventTriggerMetricsList;
     this.intervalList = this.quoteService.intervalList;
