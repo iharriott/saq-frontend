@@ -44,6 +44,7 @@ import { EquipmentEventsComponent } from './equipments/equipment-events/equipmen
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
