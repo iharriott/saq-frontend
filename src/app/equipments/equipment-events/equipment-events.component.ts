@@ -16,13 +16,13 @@ export class EquipmentEventsComponent implements OnInit {
     this.addEquipmentEventsForm = this.formBuilder.group({
 
       events: this.formBuilder.array(
-        this.addEventsFormGroup()
+        [this.addEventsFormGroup()]
        )
     });
 
   }
 
-  addEventsFormGroup() : any{
+  addEventsFormGroup() : FormGroup{
 
     return this.formBuilder.group({
      selectedEvent: [''],

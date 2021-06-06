@@ -50,6 +50,7 @@
         
       <div formArrayName="events" *ngFor="let event of addEquipmentEventsForm.get('events')['controls']; let i= index ">
           <div [formGroupName]="i">
+            
             <div class="mb-3">
               <mat-form-field appearance="standard">
                 <mat-label>selected</mat-label>
