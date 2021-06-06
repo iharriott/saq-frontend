@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
-import {Equipment} from 'src/app/interfaces/equipment';
+import { Equipment } from 'src/app/interfaces/equipment';
 
 //https://stackblitz.com/edit/angular-material-editable-table-fazhbc?file=src%2Fapp%2Fapp.component.html
 
@@ -21,12 +21,6 @@ export interface Event {
 //   { selectedEvent: false, event: 'PM 4', costPerOccurence: '629.76', occurences: 0, frequency: 4000, price: 0 },
 // ];
 
-const EVENT_DATA: Event[] = [
-  { event: 'PM 1', costPerOccurence: '85.12', occurences: 0, frequency: 500, price: 0 },
-  { event: 'PM 2', costPerOccurence: '143.28', occurences: 0, frequency: 1000, price: 0 },
-  { event: 'PM 3', costPerOccurence: '305.76', occurences: 0, frequency: 2000, price: 0 },
-  { event: 'PM 4', costPerOccurence: '629.76', occurences: 0, frequency: 4000, price: 0 },
-];
 
 @Component({
   selector: 'app-equipment-events',
@@ -35,77 +29,67 @@ const EVENT_DATA: Event[] = [
 })
 export class EquipmentEventsComponent implements OnInit {
 
-  displayedColumns: string[] = ['event', 'costPerOccurence', 'occurences', 'frequency', 'price'];
-  //dataSource = EVENT_DATA;
-  data: Event[] =  [{ 
-    event: '',
-    costPerOccurence: '',
-    occurences:0,
-    frequency: 0,
-    price: 0 } ];
-    dataSource = new BehaviorSubject<AbstractControl[]>([]);
-    rows: FormArray = this.formBuilder.array([]);
-    form: FormGroup = this.formBuilder.group({ 'events': this.rows });
+  eventColumns: string[] = ['event', 'costPerOccurence', 'occurences', 'frequency', 'price'];
+  packageColumns: string[] = ['packageName', 'description', 'events', 'occurences', 'warnings', 'actions'];
+  EVENT_DATA: Event[] = [
+    { event: 'PM 1', costPerOccurence: '85.12', occurences: 0, frequency: 500, price: 0 },
+    { event: 'PM 2', costPerOccurence: '143.28', occurences: 0, frequency: 1000, price: 0 },
+    { event: 'PM 3', costPerOccurence: '305.76', occurences: 0, frequency: 2000, price: 0 },
+    { event: 'PM 4', costPerOccurence: '629.76', occurences: 0, frequency: 4000, price: 0 },
+  ];
+  PACKAGE_DATA: any[] = [
+    { packageName: 'Construction Gold 250 / 2000', description: '250 hr interval for 2000 hr', events: 4, occurences: 8, warnings: '', actions: '' },
+    { packageName: 'Construction Gold 250 / 3000', description: '250 hr interval for 3000 hr', events: 4, occurences: 12, warnings: '', actions: '' },
+    { packageName: 'Construction Gold 250', description: 'Gold 250', events: 3, occurences: 16, warnings: '', actions: '' },
+  ];
 
-  addEquipmentEventsForm: FormGroup;
+  eventSource = new BehaviorSubject<AbstractControl[]>([]);
+  packageSource = new BehaviorSubject<AbstractControl[]>([]);
+  events: FormArray = this.formBuilder.array([]);
+  packages: FormArray = this.formBuilder.array([]);
+  form: FormGroup = this.formBuilder.group({ 'events': this.events, 'packages': this.packages });
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    
-    this.data.forEach((d: Event) => this.addRow(d, false));
-        this.updateView();
-    
-    this.addEquipmentEventsForm = this.formBuilder.group({
-      events: this.formBuilder.array([
-        this.addEventFormGroup()
-      ])
+    this.EVENT_DATA.forEach((d: Event) => this.addEvent(d, false));
+    this.PACKAGE_DATA.forEach((d: any) => this.addPackage(d, false));
+    this.updateView();
+  }
+
+  emptyTable() {
+    while (this.events.length !== 0) {
+      this.events.removeAt(0);
+    }
+  }
+
+  addEvent(d?: Event, noUpdate?: boolean) {
+    const row = this.formBuilder.group({
+      'event': [d && d.event ? d.event : null, []],
+      'costPerOccurence': [d && d.costPerOccurence ? d.costPerOccurence : null, []],
+      'occurences': [d && d.occurences ? d.occurences : null, []],
+      'frequency': [d && d.frequency ? d.frequency : 1, []],
+      'price': [d && d.price ? d.price : null, []]
     });
-
+    this.events.push(row);
+    if (!noUpdate) { this.updateView(); }
   }
 
-  addEventFormGroup(): FormGroup {
-
-    return this.formBuilder.group({
-      selectedEvent: [''],
-      event: [''],
-      CostPerOccurrence: ['0'],
-      occurrences: [0],
-      frequency: [0],
-      price: [0]
+  addPackage(d?: any, noUpdate?: boolean) {
+    const row = this.formBuilder.group({
+      'packageName': [d && d.packageName ? d.packageName : null, []],
+      'description': [d && d.description ? d.description : null, []],
+      'occurences': [d && d.occurences ? d.occurences : null, []],
+      'events': [d && d.events ? d.events : 1, []],
+      'warnings': [d && d.warnings ? d.warnings : null, []],
+      'actions': [d && d.actions ? d.actions : null, []]
     });
+    this.packages.push(row);
+    if (!noUpdate) { this.updateView(); }
   }
 
-  addEventsButtonClick(): void {
-    (<FormArray>this.addEquipmentEventsForm.get('events')).push(this.addEventFormGroup());
+  updateView() {
+    this.eventSource.next(this.events.controls);
+    this.packageSource.next(this.packages.controls);
   }
-
-removeEventButtonClick(eventGroupIndex: number): void
-{
-   (<FormArray>this.addEquipmentEventsForm.get('events')).removeAt(eventGroupIndex);
-}
-
-emptyTable() {
-  while (this.rows.length !== 0) {
-    this.rows.removeAt(0);
-  }
-}
-
-addRow(d?: Event, noUpdate?: boolean) {
-  const row = this.formBuilder.group({
-    'event'   : [d && d.event ? d.event : null, []],
-    'costPerOccurence'     : [d && d.costPerOccurence   ? d.costPerOccurence   : null, []],
-    'occurences'     : [d && d.occurences   ? d.occurences   : null, []],
-    'frequency'     : [d && d.frequency   ? d.frequency   : null, []],
-    'price'     : [d && d.price   ? d.price   : null, []]
-  });
-  this.rows.push(row);
-  if (!noUpdate) { this.updateView(); }
-}
-
-updateView() {
-  this.dataSource.next(this.rows.controls);
-}
-
-
 }
