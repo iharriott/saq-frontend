@@ -21,52 +21,116 @@
   </div>
   <div class="col-md-9">
     <form [formGroup]="addEquipmentEventsForm">
-      <table class="table">
-        <th>
-          <tr>
-            <td>test</td>
-          </tr>
-        </th>
-        <tbody>
-          <tr>
-            <td>test</td>
-          </tr>
-          <tr>
-            <td>test</td>
-          </tr>
-          <tr>
-            <td>test</td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- <mat-table class="mat-elevation-z8">
+        <ng-container matColumnDef="event">
+          <mat-header-cell *matHeaderCellDef> Event </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.event }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="costPerOccurence">
+          <mat-header-cell *matHeaderCellDef>
+            Cost Per Occurence
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.costPerOccurence }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="frequency">
+          <mat-header-cell *matHeaderCellDef> Frequency </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.frequency }}
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table> -->
+
+      <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Event Column -->
+        <ng-container matColumnDef="event">
+          <mat-header-cell *matHeaderCellDef> Event </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.event }}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Cost Per Occurence Column -->
+        <ng-container matColumnDef="costPerOccurence">
+          <mat-header-cell *matHeaderCellDef>
+            Cost Per Occurence
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.costPerOccurence }}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Occurence Column -->
+        <ng-container matColumnDef="occurences">
+          <mat-header-cell *matHeaderCellDef> Occurence </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.occurence }}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Frequency Column -->
+        <ng-container matColumnDef="frequency">
+          <mat-header-cell *matHeaderCellDef> Frequency </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.frequency }}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.price }}
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
 
       <div class="well">
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-4">
-            <button type="button" class="btn btn-primary" (click) ="addEventsButtonClick()" >Add Manual Event</button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="addEventsButtonClick()"
+            >
+              Add Manual Event
+            </button>
           </div>
         </div>
 
-        
-      <div formArrayName="events" *ngFor="let event of addEquipmentEventsForm.get('events')['controls']; let i= index ">
+        <!-- <div
+          formArrayName="events"
+          *ngFor="
+            let event of addEquipmentEventsForm.get('events')['controls'];
+            let i = index
+          "
+        >
           <div [formGroupName]="i">
-            
             <div class="mb-3">
               <mat-form-field appearance="standard">
                 <mat-label>selected</mat-label>
-                <input matInput type="text" formControlName="selectedEvent"  id="selectedEvent + i " />
+                <input
+                  matInput
+                  type="text"
+                  formControlName="selectedEvent"
+                  id="selectedEvent + i "
+                />
               </mat-form-field>
             </div>
-
-
           </div>
-
-
+        </div> -->
       </div>
-
-      </div>
-
     </form>
-    
   </div>
 </div>
