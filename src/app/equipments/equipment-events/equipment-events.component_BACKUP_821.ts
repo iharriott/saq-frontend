@@ -49,8 +49,12 @@ export class EquipmentEventsComponent implements OnInit {
 
   }
 
+<<<<<<< HEAD
+  addEventsFormGroup() : FormGroup{
+=======
   addEventFormGroup(): FormGroup {
 
+>>>>>>> 4eb1c84730d785e7bca993910079e3761cd2601c
     return this.formBuilder.group({
       selectedEvent: [''],
       event: [''],
@@ -65,5 +69,13 @@ export class EquipmentEventsComponent implements OnInit {
     (<FormArray>this.addEquipmentEventsForm.get('events')).push(this.addEventFormGroup());
   }
 
+<<<<<<< HEAD
+ removeEventButtonClick(eventGroupIndex: number): void{
+   (<FormArray>this.addEquipmentEventsForm.get('events')).removeAt(eventGroupIndex);
+}
 
+  
+=======
+
+>>>>>>> 4eb1c84730d785e7bca993910079e3761cd2601c
 }
