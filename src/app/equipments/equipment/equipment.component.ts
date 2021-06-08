@@ -20,6 +20,7 @@ export class EquipmentComponent implements OnInit {
     if (this.router.url.indexOf('quote') < 0 || this.router.url.indexOf('add') < 0) {
       this.quoteService.isReadOnly = true;
       this.quoteService.hideButton = true;
+      console.log( this.quoteService.hideButton);
     }
 
   }

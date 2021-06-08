@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { Equipment } from 'src/app/interfaces/equipment';
+import { IEvent } from '../../../app/interfaces/event';
+import { QuoteService } from 'src/app/shared/quote.service';
+import { Router } from '@angular/router';
 
 //https://stackblitz.com/edit/angular-material-editable-table-fazhbc?file=src%2Fapp%2Fapp.component.html
 
@@ -29,7 +32,7 @@ export interface Event {
 })
 export class EquipmentEventsComponent implements OnInit {
 
-  eventColumns: string[] = ['event', 'costPerOccurence', 'occurences', 'frequency', 'price'];
+  eventColumns: string[] = ['event', 'costPerOccurence', 'occurences', 'frequency', 'price', 'actions'];
   packageColumns: string[] = ['packageName', 'description', 'events', 'occurences', 'warnings', 'actions'];
   EVENT_DATA: Event[] = [
     { event: 'PM 1', costPerOccurence: '85.12', occurences: 0, frequency: 500, price: 0 },
@@ -48,8 +51,11 @@ export class EquipmentEventsComponent implements OnInit {
   events: FormArray = this.formBuilder.array([]);
   packages: FormArray = this.formBuilder.array([]);
   form: FormGroup = this.formBuilder.group({ 'events': this.events, 'packages': this.packages });
+ 
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+    private quoteService: QuoteService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.EVENT_DATA.forEach((d: Event) => this.addEvent(d, false));
@@ -92,4 +98,29 @@ export class EquipmentEventsComponent implements OnInit {
     this.eventSource.next(this.events.controls);
     this.packageSource.next(this.packages.controls);
   }
+
+removeEventButtonClick(eventGroupIndex: number): void
+{
+  console.log(eventGroupIndex);
+  this.events.removeAt(eventGroupIndex);
+  this.updateView();
+}
+
+updatePrice(occurence: number, cost: number, index: number): void{
+  const price = occurence*cost;
+  const existingEvents = this.form.get('events') as FormArray;
+  const singleElem = existingEvents.at(index).value;
+  console.log('first',singleElem);
+  singleElem.price = occurence*cost;
+  console.log('second', singleElem);
+  this.updateView();
+}
+
+onClose(){
+  this.quoteService.currentEquipment.events = this.form.value.events; 
+  console.log('currentequipment_events',  this.quoteService.currentEquipment);
+  this.router.navigate(['/equipment'])
+}
+
+
 }

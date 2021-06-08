@@ -1,6 +1,7 @@
+import { NodeWithI18n } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { QuoteService } from 'src/app/shared/quote.service';
+import { QuoteService } from '../../../app/shared/quote.service';
 
 @Component({
   selector: 'app-add-equipment',
@@ -61,10 +62,62 @@ export class AddEquipmentComponent implements OnInit {
       startPMHr: [{ value: '', disabled: this.quoteService.isReadOnly }],
       billingInterval: [{ value: '', disabled: this.quoteService.isReadOnly }],
     });
+
+    this.quoteService.currentEquipment = {
+      serialNumber: '',
+      make: '',
+      model: '',
+      stockNo:  '',
+      unitNo: '',
+      startHour:0,
+      endHour:0,
+      durationHour: 0,
+      startDate: new Date(),
+      endDate: new Date(),
+      price: 0,
+      discount: 0,
+      netPrice: 0,
+      costPerHour: 0,
+      adjCPH: 0,
+      lastUpdate:  new Date(),
+      updatedBy: '',
+      totalPrice: 0,
+      totalDiscount: 0,
+      totalNetPrice: 0,
+      totalCostPerHr: 0,
+      totalAdjCph: 0,
+      events: []
+    }
   }
 
   goToEvents() {
+    this.mapFormValuesToEquipmentModel();
+    console.log('before equipment added', this.quoteService.currentEquipment);
     this.equipmentToggle = !this.equipmentToggle;
+  }
+
+  setButtonName(): string{
+    let name ='';
+   if (this.equipmentToggle){
+     name = "Go to Events";
+   }else{
+     name = "Go to Equipment";
+   }
+
+   return name;
+
+  }
+
+  mapFormValuesToEquipmentModel(){
+    this.quoteService.currentEquipment.serialNumber = this.addEquipmentForm.value.serialNo;
+    this.quoteService.currentEquipment.make = this.addEquipmentForm.value.make;
+    this.quoteService.currentEquipment.stockNo = this.addEquipmentForm.value.stockNo;
+    this.quoteService.currentEquipment.unitNo = this.addEquipmentForm.value.unitNo;
+    this.quoteService.currentEquipment.startHour = this.addEquipmentForm.value.hourStart;
+    this.quoteService.currentEquipment.endHour = this.addEquipmentForm.value.hourEnd;
+    this.quoteService.currentEquipment.startDate = this.addEquipmentForm.value.dateStart;
+    this.quoteService.currentEquipment.endDate =  this.addEquipmentForm.value.dateEnd;
+    this.quoteService.currentEquipment.model = this.addEquipmentForm.value.model;
   }
 
 }

@@ -9,7 +9,7 @@ import { QuoteService } from '../shared/quote.service';
 })
 export class ContactComponent implements OnInit {
 
-  constructor(private quoteService: QuoteService,
+  constructor(public quoteService: QuoteService,
     private formBuilder: FormBuilder) { }
 
   contactForm: FormGroup;

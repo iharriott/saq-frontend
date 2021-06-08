@@ -9,7 +9,7 @@ import { QuoteService } from '../shared/quote.service';
 })
 export class OpportunityComponent implements OnInit {
 
-  constructor(private quoteService: QuoteService,
+  constructor(public quoteService: QuoteService,
     private formBuilder: FormBuilder) { }
 
   opportunityForm: FormGroup;

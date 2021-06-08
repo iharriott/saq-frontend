@@ -11,7 +11,7 @@ export class CustomerComponent implements OnInit {
 
   customerForm: FormGroup;
 
-  constructor(private quoteService: QuoteService,
+  constructor(public quoteService: QuoteService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {

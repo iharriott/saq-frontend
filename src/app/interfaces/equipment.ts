@@ -1,3 +1,5 @@
+import { IEvent } from "./event";
+
 export interface Equipment {
   serialNumber: string;
   make: string;
@@ -14,11 +16,12 @@ export interface Equipment {
   netPrice: number;
   costPerHour: number;
   adjCPH: number;
-  lastUpdate: number;
+  lastUpdate: Date;
   updatedBy: string;
   totalPrice: number;
   totalDiscount: number;
   totalNetPrice: number;
   totalCostPerHr: number;
   totalAdjCph: number;
+  events: IEvent[];
 }

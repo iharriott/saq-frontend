@@ -130,7 +130,7 @@
               [formGroupName]="index"
             >
               <mat-form-field appearance="standard">
-                <input matInput type="number" formControlName="occurences" />
+                <input matInput type="number" formControlName="occurences" (blur)="updatePrice(row.value.occurences, row.value.costPerOccurence, index)"/>
               </mat-form-field>
             </mat-cell>
           </ng-container>
@@ -154,8 +154,22 @@
               {{ row.value.price }}
             </mat-cell>
           </ng-container>
+
+          <ng-container matColumnDef="actions" >
+            <th mat-header-cell  *matHeaderCellDef > Actions </th>
+            <td mat-cell *matCellDef="let row; let index = index" >
+              <button mat-button (click)="removeEventButtonClick(index)" *ngIf="row.value.event !=='PM 1' || row.value.event !=='PM 2' ">Delete</button>
+            </td>
+          </ng-container>
+
         </mat-table>
       </div>
     </div>
+    <div class="form-group">
+      <button   type="button" class="btn btn-primary button_example" (click)="onClose()">
+        <i class="fa fa-plus"></i> Close
+      </button> 
+  </div>
+    
   </form>
 </div>

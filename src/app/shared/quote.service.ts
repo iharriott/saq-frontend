@@ -21,7 +21,8 @@ export class QuoteService {
   contactItems: Contact[] = [];
   isReadOnly: boolean = false;
   hideButton: boolean = false;
-  equipmentList: Equipment[] = [];
+  equipmentList: Equipment[];
+  currentEquipment: Equipment;
   eventTriggerList: number[] = [25, 50, 100, 200];
   eventTriggerMetricsList: string[] = ['Hours', 'Kilometers', 'Miles'];
   intervalList: string[] = ['Fixed', 'Rolling'];
