@@ -1,45 +1,195 @@
 <mat-tab-group mat-align-tabs="start">
-    <mat-tab label="Header"><app-quote-header></app-quote-header></mat-tab>
-    <mat-tab label="Quote"> <app-quote-info></app-quote-info></mat-tab>
-    <mat-tab label="Customer"> <app-customer></app-customer></mat-tab>
-    <mat-tab label="Opportunity"><app-opportunity></app-opportunity></mat-tab>
-    <mat-tab label="Contact"><app-contact></app-contact></mat-tab>
+  <mat-tab label="Header"><app-quote-header></app-quote-header></mat-tab>
+  <mat-tab label="Quote"> <app-quote-info></app-quote-info></mat-tab>
+  <mat-tab label="Customer"> <app-customer></app-customer></mat-tab>
+  <mat-tab label="Opportunity"><app-opportunity></app-opportunity></mat-tab>
+  <mat-tab label="Contact"><app-contact></app-contact></mat-tab>
 </mat-tab-group>
 
 <div class="form-group">
-    <button   type="button" class="btn btn-primary button_example" (click)="addEquipment(null, null)">
-      <i class="fa fa-plus"></i> Add Equipment
-    </button> 
+  <button
+    type="button"
+    class="btn btn-primary button_example"
+    (click)="addEquipment(null, null)"
+  >
+    <i class="fa fa-plus"></i> Add Equipment
+  </button>
 </div>
-<mat-accordion multi="true">
-  <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <pre> Serial No  Stock No Model: 130G Unit No</pre>
-      </mat-panel-title>
-      <mat-panel-description>
-        Equipment summary content
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <pre>PM7   $1000   4  $4000</pre>
-    <pre>PM_250  $523.73 1  $523.73</pre>
-    <pre>PM_500  $798.16 1  $798.16</pre>
-  </mat-expansion-panel>
+<table
+  mat-table
+  [dataSource]="dataSource"
+  multiTemplateDataRows
+  class="mat-elevation-z8 mb-3"
+>
+  <ng-container
+    matColumnDef="{{ column }}"
+    *ngFor="let column of columnsToDisplay"
+  >
+    <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+    <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+  </ng-container>
 
-  <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <pre> Serial No Stock No Model: W530 Unit No</pre>
-      </mat-panel-title>
-      <mat-panel-description>
-        Equipment summary content
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <pre>PM1  $1000   2  $2000</pre>
-    <pre>PM2  $600.73 1  $600.73</pre>
-    <pre>PM3  $84     1  $84</pre>
-  </mat-expansion-panel>
-</mat-accordion>
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td
+      mat-cell
+      *matCellDef="let element"
+      [attr.colspan]="columnsToDisplay.length"
+    >
+      <div
+        class=""
+        [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
+      >
+        <div class="row mb-2">
+          <div class="col-md-4">
+            <fieldset>
+              <legend>Equipment</legend>
+              <div class="row">
+                <div class="col-md-3">Make:</div>
+                <div class="col-md-3">A4</div>
+                <div class="col-md-3">Stock No:</div>
+                <div class="col-md-3">1111</div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">Model:</div>
+                <div class="col-md-3">130G</div>
+                <div class="col-md-3">Unit No:</div>
+                <div class="col-md-3">6677</div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">Serial No:</div>
+                <div class="col-md-3">6536536</div>
+                <div class="col-md-3">SMU:</div>
+                <div class="col-md-3">Testing</div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">Last Billed SMU:</div>
+                <div class="col-md-3">2021-01-26</div>
+                <div class="col-md-3">Annual Usage:</div>
+                <div class="col-md-3">1000</div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">Product Link:</div>
+                <div class="col-md-6">testing</div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="col-md-4">
+            <fieldset>
+              <legend>Contract</legend>
+              <div class="row">
+                <div class="col-md-3">Contact Start Hr:</div>
+                <div class="col-md-3">0</div>
+                <div class="col-md-3">Event Trigger:</div>
+                <div class="col-md-3">50 hours</div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">Contract End Hr:</div>
+                <div class="col-md-3">2000</div>
+                <div class="col-md-3">Interval:</div>
+                <div class="col-md-3">Fixed</div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">Contract Duration:</div>
+                <div class="col-md-3">Hr</div>
+                <div class="col-md-3">Expires By:</div>
+                <div class="col-md-3">Both</div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">Contract Start Date:</div>
+                <div class="col-md-3">01 Jun, 2021</div>
+                <div class="col-md-3">Start at PM:</div>
+                <div class="col-md-3">PM 1</div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">Contract End Date:</div>
+                <div class="col-md-3">01 Jun, 2023</div>
+                <div class="col-md-3">Start PM hr:</div>
+                <div class="col-md-3">250</div>
+              </div>
+              <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-3">Billing Interval:</div>
+                <div class="col-md-3">Testing</div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="col-md-4">
+            <fieldset>
+              <legend>Price</legend>
+              <div class="row">
+                <div class="col-md-3">Price:</div>
+                <div class="col-md-3">$1562.56</div>
+                <div class="col-md-3">Cost Per Hour:</div>
+                <div class="col-md-3">$0.78</div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">Discount:</div>
+                <div class="col-md-3">$0.00</div>
+                <div class="col-md-3">Adjusted CPH:</div>
+                <div class="col-md-3">$0.00</div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">Net Price:</div>
+                <div class="col-md-3">$1562.56</div>
+                <div class="col-md-3">Variance:</div>
+                <div class="col-md-3">+0%</div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <table
+          mat-table
+          [dataSource]="dataSourcee"
+          class="mat-elevation-z8 mb-2"
+        >
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
 
-  
- 
+          <!-- Position Column -->
+          <ng-container matColumnDef="event">
+            <th mat-header-cell *matHeaderCellDef>Event</th>
+            <td mat-cell *matCellDef="let element">{{ element.event }}</td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="costPerOccurence">
+            <th mat-header-cell *matHeaderCellDef>Cost Per Occurence</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.costPerOccurence }}
+            </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="occurences">
+            <th mat-header-cell *matHeaderCellDef>Occurences</th>
+            <td mat-cell *matCellDef="let element">{{ element.occurences }}</td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef>Price</th>
+            <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr
+    mat-row
+    *matRowDef="let element; columns: columnsToDisplay"
+    class="example-element-row"
+    [class.example-expanded-row]="expandedElement === element"
+    (click)="expandedElement = expandedElement === element ? null : element"
+  ></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: ['expandedDetail']"
+    class="example-detail-row"
+  ></tr>
+</table>

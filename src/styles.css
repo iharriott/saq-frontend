@@ -31,8 +31,8 @@ td.mat-cell {
   /* row padding */
   padding: 16px 0;
   /* row border */
-  border-bottom: 1px solid rgb(182, 177, 177);
-  border-top: 1px solid rgb(182, 177, 177);
+  /* border-bottom: 1px solid rgb(182, 177, 177); */
+  /* border-top: 1px solid rgb(182, 177, 177); */
 }
 
 td.mat-cell:first-child {
