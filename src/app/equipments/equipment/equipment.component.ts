@@ -104,8 +104,8 @@ export class EquipmentComponent implements OnInit {
   dataSource = EQUIPMENT_DATA;
   columnsToDisplay = ['serialNo', 'stockNo', 'model', 'unitNo'];
   expandedElement: Equipment | null;
-  dataSourcee = EVENT_DATA;
-  displayedColumns: string[] = ['event', 'costPerOccurence', 'occurences', 'price'];
+  eventDataSource = EVENT_DATA;
+  eventDisplayedColumns: string[] = ['event', 'costPerOccurence', 'occurences', 'price'];
 
   ngOnInit(): void {
     if (this.router.url.indexOf('quote') < 0 || this.router.url.indexOf('add') < 0) {
